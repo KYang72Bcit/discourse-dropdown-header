@@ -1,0 +1,10 @@
+{
+  "name": "discourse-header-dropdowns",
+  "version": "1.0.0",
+  "repository": "",
+  "author": "Discourse",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-discourse": "^3.2.0"
+  }
+}
