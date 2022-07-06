@@ -1,20 +1,20 @@
 $item-height: 40px;
 
-@if $Fixed_mode == "true" {
-  .top-menu {
-    position: fixed;
-    top: 0;
-    z-index: z("header") + 1;
-  }
+// @if $Fixed_mode == "true" {
+//   .top-menu {
+//     position: fixed;
+//     top: 0;
+//     z-index: z("header") + 1;
+//   }
 
-  .d-header-wrap {
-    top: $item-height;
-  }
+//   .d-header-wrap {
+//     top: $item-height;
+//   }
 
-  #main-outlet {
-    padding-top: calc(1.8em + #{$item-height});
-  }
-}
+//   #main-outlet {
+//     padding-top: calc(1.8em + #{$item-height});
+//   }
+// }
 
 .top-menu {
   .menu-item.vmo {
