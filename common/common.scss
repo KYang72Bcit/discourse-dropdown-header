@@ -109,10 +109,10 @@ $icon-opacity: 0.7;
     }
   }
 
-  .divider {
-    border-top: solid 1px fallback($Divider_color, $primary-low);
-    margin: 0.25em auto;
-  }
+  // .divider {
+  //   border-top: solid 1px fallback($Divider_color, $primary-low);
+  //   margin: 0.25em auto;
+  // }
 
   .d-icon {
     opacity: $icon-opacity;
