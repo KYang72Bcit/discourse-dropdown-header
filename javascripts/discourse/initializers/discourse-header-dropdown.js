@@ -26,9 +26,9 @@ export default {
         "header-buttons:before" :
         "home-logo:after";
 
-      const menuItemsArray = [];
+      //const menuItemsArray = [];
       const subMenuItemsArray = [];
-      const headerLink = [];
+      const headerLinks = [];
 
       splitSubmenuItems
         .split("|")
@@ -44,7 +44,7 @@ export default {
           const subLinkTarget = subTarget === "self" ? "_self" : "_blank";
           const subLinkClass = `.${subLinkText
             .toLowerCase()
-            .replace(/\s/gi, "-")}-header-sub-`;
+            .replace(/\s/gi, "-")}`;
           const subAnchorAttributes = {
             title: subLinkTitle,
             href: subLinkHref,
@@ -54,8 +54,9 @@ export default {
           }
 
           const subMenuItem = {
-            parent, 
+            parent,
             subLinkClass,
+            subLinkText,
             subAnchorAttributes
           };
 
@@ -68,7 +69,7 @@ export default {
         .split("|")
         .filter(Boolean)
         .map((customHeaderLinksArray) => {
-          const [linkText, linkTitle, linkHref, device, target] =
+          const [linkText, linkTitle, linkHref, target] =
           // linkText is the what appear on the menu
           // linkTitle is what appear when hover
           customHeaderLinksArray
@@ -76,63 +77,48 @@ export default {
             .filter(Boolean)
             .map((x) => x.trim());
 
-          const deviceClass = `.${device}`;
           const linkTarget = target === "self" ? "" : "_blank";
           const linkClass = `.${linkText
             .toLowerCase()
-            .replace(/\s/gi, "-")}-header-main-`;
+            .replace(/\s/gi, "-")}`;
 
-          const anchorAttributes = {
-            title: linkTitle,
-            href: linkHref,
-          };
-          if (linkTarget) {
-            anchorAttributes.target = linkTarget;
-          }
 
           const childrenArray = [];
-          subMenuItemsArray.forEach((subItem) =>{
-            if (subItem.parent === linkText){
+          subMenuItemsArray.forEach((subItem) => {
+            if (subItem.parent === linkText) {
               childrenArray.push(subItem);
             }
           })
 
           const menuItem = {
-            deviceClass,
             linkClass,
             linkText, //the text show on menu
             linkTitle, //the text when havor
             linkHref,
             linkTarget,
-            children: childrenArray 
+            children: childrenArray
           }
-          menuItemsArray.push(menuItem);
 
-          
+          headerLinks.push(
+            h(
+              `a.menu-item${linkClass}`, linkText, {
+                title: linkTitle,
+                href: linkHref,
+                target: linkTarget
 
-          menuItemsArray.forEach((menuItem) =>{
-            headerLink.push(
-              h(
-                `a.menu-item${menuItem.deviceClass}${linkClass}`,linkText, {
-                  title: linkTitle,
-                  href: linkHref,
-                  target: linkTarget
-
-                },  
-                h(`div.d-header-dropdown`,
-                  h(`ul.d-dropdown-menu`,
-                    children.map((child)=>{
-                      return h(`li.submenu-item${child.subLinkClass}`,
-                        h(`a.submenu-link`, child.subAnchorAttributes, child.subLinkText))
-                    })
-                    ))
-              )
+              },
+              h(`div.d-header-dropdown`,
+                h(`ul.d-dropdown-menu`,
+                  children.map((child) => {
+                    return h(`li.submenu-item${child.subLinkClass}`,
+                      h(`a.submenu-link`, child.subAnchorAttributes, child.subLinkText))
+                  })
+                ))
             )
-          })
+          )
 
-          headerLink.push()
 
-          
+
 
           // headerLinks.push(
           //   h(
