@@ -14,9 +14,12 @@ export default {
 
   initialize() {
     withPluginApi("0.8.20", (api) => {
+      const {
+          iconNode
+        } = require("discourse-common/lib/icon-library");
       const splitMenuItems = settings.Menu_items;
       const splitSubmenuItems = settings.Submenu_items;
-      //const customHeaderLinks = settings.Custom_header_links;
+    
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
@@ -26,7 +29,7 @@ export default {
         "header-buttons:before" :
         "home-logo:after";
 
-      //const menuItemsArray = [];
+      const testArray = [];
       const subMenuItemsArray = [];
       const headerLinks = [];
 
@@ -111,19 +114,26 @@ export default {
 
               }, menuItem.linkText,
               h(`div.d-header-dropdown`,
-                h(`ul.d-dropdown-menu`
-                  // menuItem.children.map((child) => {
+                h(`ul.d-dropdown-menu`,
+                  menuItem.children.map((child) => {
 
-                  //   return h(`li.submenu-item${child.subLinkClass}`,
-                  //     h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
-                  // })
-                ), "hello")
+                    return h(`li.submenu-item${child.subLinkClass}`,
+                      h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
+                  })
+                ))
             )
           )
 
 
 
-
+          testArray.push(
+            h('li', h(
+              'a.icon', {
+                href: 'https://foo.bar.com/',
+                title: 'Foobar'
+              }, iconNode('heart')
+            ))
+          );
           // headerLinks.push(
           //   h(
           //     `li.headerLink${deviceClass}${linkClass}`,
@@ -135,20 +145,21 @@ export default {
 
 
       api.decorateWidget(linksPosition, (helper) => {
-        return helper.h("ul.custom-header-links", headerLinks);
+        // return helper.h("ul.custom-header-links", headerLinks);
+        return helper.h("ul.custom-header-links", testArray);
       });
 
-      const {
-        iconNode
-      } = require("discourse-common/lib/icon-library");
-      api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li', [
-          helper.h('a.icon', {
-            href: 'https://foo.bar.com/',
-            title: 'Foobar'
-          }, iconNode('heart')),
-        ]);
-      });
+      // const {
+      //   iconNode
+      // } = require("discourse-common/lib/icon-library");
+      // api.decorateWidget('header-icons:before', helper => {
+      //   return helper.h('li', [
+      //     helper.h('a.icon', {
+      //       href: 'https://foo.bar.com/',
+      //       title: 'Foobar'
+      //     }, iconNode('heart')),
+      //   ]);
+      // });
 
       api.decorateWidget("home-logo:after", (helper) => {
         const dHeader = document.querySelector(".d-header");
