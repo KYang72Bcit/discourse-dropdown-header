@@ -38,6 +38,7 @@ export default {
           //linkTitle is what appear when hover
           const [parent, subLinkText, subLinkHref, subTarget, subLinkTitle] =
           customSubLinksArray
+            .split(",")
             .filter(Boolean)
             .map((x) => x.trim());
 
