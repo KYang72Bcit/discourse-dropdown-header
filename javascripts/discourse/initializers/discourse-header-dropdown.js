@@ -135,7 +135,7 @@ export default {
         });
 
       api.decorateWidget("header-buttons:before", (helper) => {
-        return helper.h("span.hamburger-menu", "space holder");
+        return helper.h("span.hamburger-menu", iconNode('heart'));
       });
 
       api.decorateWidget("home-logo:after",(helper) => {
