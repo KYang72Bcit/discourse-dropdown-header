@@ -140,7 +140,7 @@ export default {
             type: "checkbox"
           }), 
             h('label.nav__toggle-label',{
-              for: "nav__toggle"
+              htmlFor: "nav__toggle"
               }, 
                 h('span.hamburger-menu'))
         )

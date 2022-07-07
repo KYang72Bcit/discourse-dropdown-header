@@ -131,6 +131,8 @@ $icon-opacity: 0.7;
   padding: var(--bars-vertical-offset) 0;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 0px;
+  margin-right: 10px;
 }
 
 .nav__toggle-label:hover.nav__toggle-label span,
@@ -146,7 +148,7 @@ $icon-opacity: 0.7;
 }
 
 .nav__toggle:checked ~ .menu-items {
-  transform: scaleX(0);
+  transform: scaleX(0) !important;
 }
 
 .nav__toggle:checked ~ .nav__toggle-label span::before{
@@ -186,8 +188,11 @@ $icon-opacity: 0.7;
 @media screen and (max-width: 800px) {
 
   .menu-items {
+    padding: 2rem;
+    padding-top: 1rem;
     position: absolute;
     display: flex;
+    gap: 0.75rem;
     background-color: white;
     flex-direction: column;
     height: fit-content;
@@ -199,8 +204,8 @@ $icon-opacity: 0.7;
 
   .menu-item {
     color: var(--primary-high);
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     white-space: nowrap;
     &:hover,
     &:active,
@@ -237,6 +242,7 @@ $icon-opacity: 0.7;
   .d-header-dropdown {
     position: relative;
     display: none;
+    top: 1rem;
   }
 
   .nav__toggle-label {
