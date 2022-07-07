@@ -103,8 +103,10 @@ export default {
             children: childrenArray
           }
           //console.log(menuItem.children);
-
-
+          const icon = null;
+          if(menuItem.children.length > 0) {
+            icon = iconNode('caret-right')
+          }
           headerLinks.push(
             h(
               `a.menu-item${menuItem.linkClass}`, {
@@ -112,7 +114,7 @@ export default {
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
 
-              }, [menuItem.linkText, iconNode('caret-right'),
+              }, [menuItem.linkText, icon,
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
