@@ -112,7 +112,7 @@ export default {
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
 
-              }, menuItem.linkText,
+              }, [menuItem.linkText,
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
@@ -120,7 +120,7 @@ export default {
                     return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   })
-                ))
+                ))]
             )
           )
 
@@ -145,8 +145,8 @@ export default {
 
 
       api.decorateWidget(linksPosition, (helper) => {
-        // return helper.h("ul.custom-header-links", headerLinks);
-        return helper.h("ul.custom-header-links", testArray);
+        return helper.h("ul.custom-header-links", headerLinks);
+        // return helper.h("ul.custom-header-links", testArray);
       });
 
       // const {
