@@ -220,7 +220,7 @@ $icon-opacity: 0.7;
         top: 8px;
         left: 0;
         z-index: z("header") + 1;
-        transition: 0.5s;
+        transition: 0.5s ease-in;
         .rtl & {
           left: unset;
           right: 0;
