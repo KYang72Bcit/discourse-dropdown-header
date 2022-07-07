@@ -112,7 +112,7 @@ export default {
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
 
-              }, [menuItem.linkText,
+              }, [menuItem.linkText, iconNode('caret-right'),
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
