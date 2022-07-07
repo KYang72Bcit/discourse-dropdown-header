@@ -138,6 +138,61 @@ $icon-opacity: 0.7;
     }
   }
 
-.hamburger-menu {
+  // burger menu
+  .nav__toggle {
+    display: none;
+  }
   
-}
+  .nav__toggle:checked ~ .nav__items {
+    transform: scaleX(1);
+  }
+  
+  .nav__toggle-label {
+    --bars-vertical-offset: 7px;
+    padding: var(--bars-vertical-offset) 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .nav__toggle-label:hover.nav__toggle-label span,
+  .nav__toggle-label:hover.nav__toggle-label span::before,
+  .nav__toggle-label:hover.nav__toggle-label span::after{
+    background-color: rgb(157, 149, 149);
+  }
+  
+  .nav__toggle:checked ~ .nav__toggle-label span,
+  .nav__toggle:checked ~ .nav__toggle-label span::before,
+  .nav__toggle:checked ~ .nav__toggle-label span::after {
+   background-color: rgb(157, 149, 149);
+  }
+  
+  .nav__toggle:checked ~ .nav__toggle-label span::before{
+    transform: translateX(10px) rotate(20deg);
+  }
+  
+  .nav__toggle-label span,
+  .nav__toggle-label span::before,
+  .nav__toggle-label span::after {
+    display: block;
+    background-color: #fefefe;
+    width: 1.5em;
+    height: 3px;
+    position: relative;
+    border-radius: 2px;
+    transition: ease 250ms;
+  }
+  
+  .nav__toggle-label span::before,
+  .nav__toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+  
+  .nav__toggle-label span::before {
+    bottom: var(--bars-vertical-offset);
+  }
+  
+  .nav__toggle-label span::after {
+    top: var(--bars-vertical-offset);
+  }
