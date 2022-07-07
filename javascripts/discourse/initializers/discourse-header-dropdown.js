@@ -18,7 +18,7 @@ export default {
       const {
           iconNode
         } = require("discourse-common/lib/icon-library");
-        
+
       const splitMenuItems = settings.Menu_items;
       const splitSubmenuItems = settings.Submenu_items;
     
@@ -134,14 +134,18 @@ export default {
           
         });
 
-      api.decorateWidget(linksPosition,(helper) => {
+      api.decorateWidget("header-buttons:before", (helper) => {
+        return helper.h("span.hamburger-menu");
+      });
+
+      api.decorateWidget("home-logo:after",(helper) => {
         return helper.
         h('div.menu-content wrap',
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
 
-      api.decorateWidget(linksPosition, (helper) => {
+      api.decorateWidget("home-logo:after", (helper) => {
         return helper.h("div.menu-items", headerLinks);
       });
 
