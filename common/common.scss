@@ -222,7 +222,6 @@ $icon-opacity: 0.7;
         height: auto;
         visibility: visible;
         transform: scaleY(1);
-        transition: 0.2s ease-in;
         .rtl & {
           left: unset;
           right: 0;
@@ -247,6 +246,7 @@ $icon-opacity: 0.7;
     height: 0;
     position: relative;
     transform: scaleY(0);
+    transition: 0.2s ease-in;
     top: 1rem;
   }
 
