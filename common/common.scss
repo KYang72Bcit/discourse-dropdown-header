@@ -12,6 +12,7 @@ $icon-opacity: 0.7;
 
   .menu-content {
     background: fallback($Menu_background, $secondary);
+    padding-left: 5%;
     display: flex;
     align-items: center;
     // justify-content: if($Invert_position == "true", flex-end, flex-start);
