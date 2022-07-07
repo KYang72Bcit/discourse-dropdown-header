@@ -132,64 +132,9 @@ $icon-opacity: 0.7;
     }
   }
 
-@media screen and (max-width: 800px) {
-  .menu-items {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: $item-height;
-    transform: scaleX(0);
-    width: 30vw;
-    top: 100%;
-    right: 0;
-    transform: scaleX(0);
-  }
-
-  .menu-item {
-    color: var(--primary-high);
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    &:hover,
-    &:active,
-    &:focus {
-     
-      color: var(--primary-high);
-      cursor: pointer;
-      .d-icon-caret-right {
-        transform: rotate(90deg);
-      }
-      .d-header-dropdown {
-        display: block;
-        top: $item-height;
-        left: 0;
-        z-index: z("header") + 1;
-        .rtl & {
-          left: unset;
-          right: 0;
-        }
-      }
-    }
-
-    .d-icon-caret-right {
-      margin-left: 0.25em;
-      transition: transform 0.15s ease-in-out;
-
-      .rtl & {
-        margin-left: 0em;
-        margin-right: 0.25em;
-      }
-    }
-  }
-}
-
-  // desktop
-.nav__toggle-label {
-  display: none; 
-}
-
 // common
 .nav__toggle-label {
+  display: none; 
   --bars-vertical-offset: 7px;
   padding: var(--bars-vertical-offset) 0;
   display: flex;
@@ -246,6 +191,66 @@ $icon-opacity: 0.7;
 .nav__toggle {
   display: none;
 }
+
+@media screen and (max-width: 800px) {
+
+  .menu-items {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: $item-height;
+    transform: scaleX(0);
+    width: 30vw;
+    top: 100%;
+    right: 0;
+    transform: scaleX(0);
+  }
+
+  .menu-item {
+    color: var(--primary-high);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    &:hover,
+    &:active,
+    &:focus {
+     
+      color: var(--primary-high);
+      cursor: pointer;
+      .d-icon-caret-right {
+        transform: rotate(90deg);
+      }
+      .d-header-dropdown {
+        display: block;
+        top: $item-height;
+        left: 0;
+        z-index: z("header") + 1;
+        .rtl & {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+
+    .d-icon-caret-right {
+      margin-left: 0.25em;
+      transition: transform 0.15s ease-in-out;
+
+      .rtl & {
+        margin-left: 0em;
+        margin-right: 0.25em;
+      }
+    }
+  }
+
+  .nav__toggle-label {
+    display: block;
+  }
+}
+
+  // desktop
+
+
 
 // burger menu (mobile)
 
