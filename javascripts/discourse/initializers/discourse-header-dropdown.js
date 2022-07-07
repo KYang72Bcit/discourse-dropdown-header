@@ -99,7 +99,7 @@ export default {
             linkTarget,
             children: childrenArray
           }
-          console.log(menuItem.children);
+          //console.log(menuItem.children);
 
 
           headerLinks.push(
@@ -112,7 +112,8 @@ export default {
               }, menuItem.linkText,
               h("div.d-header-dropdown",
                 h("ul.d-dropdown-menu",
-                menuItem.children.map((child) => {
+                  menuItem.children.map((child) => {
+                    console.log("inside h");
                     return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   })
