@@ -148,9 +148,9 @@ $icon-opacity: 0.7;
 }
 
 .nav__toggle:checked ~ .title > div.menu-items {
-  transform: scaleX(0) !important;
-  display: none;
-  background-color: red;
+  transform: scaleX(1) !important;
+  transition: ease-in-out 0.25s;
+  // padding: 0;
 }
 
 .nav__toggle:checked ~ .menu-items > .menu-item {
@@ -205,7 +205,8 @@ $icon-opacity: 0.7;
     width: 30vw;
     top: 100%;
     right: 0;
-    transform: scaleX(1);
+    transform: scaleX(0);
+    transition: ease-in-out 0.3s;
   }
 
   .menu-item {
