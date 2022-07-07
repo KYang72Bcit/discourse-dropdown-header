@@ -142,7 +142,7 @@ export default {
             h('label.nav__toggle-label',{
               for: "nav__toggle"
               }, 
-                h('span'))
+                h('span.hamburger-menu'))
         )
   
         api.decorateWidget("header-buttons:before", (helper) => {
