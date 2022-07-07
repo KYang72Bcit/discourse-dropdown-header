@@ -147,7 +147,7 @@ $icon-opacity: 0.7;
   background-color: rgb(157, 149, 149);
 }
 
-.nav__toggle:checked ~ .menu-items {
+.nav__toggle:checked .menu-items {
   transform: scaleX(0) !important;
   display: none;
   background-color: red;
