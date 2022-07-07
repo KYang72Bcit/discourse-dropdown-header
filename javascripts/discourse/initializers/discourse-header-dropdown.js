@@ -135,7 +135,7 @@ export default {
         });
 
       api.decorateWidget("header-buttons:before", (helper) => {
-        return helper.h("span.hamburger-menu");
+        return helper.h("span.hamburger-menu", "space holder");
       });
 
       api.decorateWidget("home-logo:after",(helper) => {
