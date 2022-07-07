@@ -21,7 +21,7 @@ $icon-opacity: 0.7;
   .menu-items {
     display: flex;
     height: $item-height;
-
+    transform: scaleX(0);
   }
 
   .menu-item {
@@ -120,11 +120,6 @@ $icon-opacity: 0.7;
     }
   }
 
-  // .divider {
-  //   border-top: solid 1px fallback($Divider_color, $primary-low);
-  //   margin: 0.25em auto;
-  // }
-
   .d-icon {
     opacity: $icon-opacity;
     min-width: 1em;
@@ -138,61 +133,119 @@ $icon-opacity: 0.7;
     }
   }
 
-  // burger menu
-  .nav__toggle {
-    display: none;
+@media screen and (max-width: 800px) {
+  .menu-items {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: $item-height;
+    transform: scaleX(0);
+    width: 30vw;
+    top: 100%;
+    right: 0;
   }
-  
-  .nav__toggle:checked ~ .nav__items {
-    transform: scaleX(1);
-  }
-  
-  .nav__toggle-label {
-    --bars-vertical-offset: 7px;
-    padding: var(--bars-vertical-offset) 0;
+
+  .menu-item {
+    color: var(--primary-high);
     display: flex;
     align-items: center;
-    cursor: pointer;
+    white-space: nowrap;
+    &:hover,
+    &:active,
+    &:focus {
+     
+      color: var(--primary-high);
+      cursor: pointer;
+      .d-icon-caret-right {
+        transform: rotate(90deg);
+      }
+      .d-header-dropdown {
+        display: block;
+        top: $item-height;
+        left: 0;
+        z-index: z("header") + 1;
+        .rtl & {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+
+    .d-icon-caret-right {
+      margin-left: 0.25em;
+      transition: transform 0.15s ease-in-out;
+
+      .rtl & {
+        margin-left: 0em;
+        margin-right: 0.25em;
+      }
+    }
   }
-  
-  .nav__toggle-label:hover.nav__toggle-label span,
-  .nav__toggle-label:hover.nav__toggle-label span::before,
-  .nav__toggle-label:hover.nav__toggle-label span::after{
-    background-color: rgb(157, 149, 149);
-  }
-  
-  .nav__toggle:checked ~ .nav__toggle-label span,
-  .nav__toggle:checked ~ .nav__toggle-label span::before,
-  .nav__toggle:checked ~ .nav__toggle-label span::after {
-   background-color: rgb(157, 149, 149);
-  }
-  
-  .nav__toggle:checked ~ .nav__toggle-label span::before{
-    transform: translateX(10px) rotate(20deg);
-  }
-  
-  .nav__toggle-label span,
-  .nav__toggle-label span::before,
-  .nav__toggle-label span::after {
-    display: block;
-    background-color: var(--primary);
-    width: 1.5em;
-    height: 3px;
-    position: relative;
-    border-radius: 2px;
-    transition: ease 250ms;
-  }
-  
-  .nav__toggle-label span::before,
-  .nav__toggle-label span::after {
-    content: '';
-    position: absolute;
-  }
-  
-  .nav__toggle-label span::before {
-    bottom: var(--bars-vertical-offset);
-  }
-  
-  .nav__toggle-label span::after {
-    top: var(--bars-vertical-offset);
-  }
+}
+
+  // desktop
+.nav__toggle-label {
+  display: none; 
+}
+
+// common
+.nav__toggle-label {
+  --bars-vertical-offset: 7px;
+  padding: var(--bars-vertical-offset) 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__toggle-label:hover.nav__toggle-label span,
+.nav__toggle-label:hover.nav__toggle-label span::before,
+.nav__toggle-label:hover.nav__toggle-label span::after{
+  background-color: rgb(157, 149, 149);
+}
+
+.nav__toggle:checked ~ .nav__toggle-label span,
+.nav__toggle:checked ~ .nav__toggle-label span::before,
+.nav__toggle:checked ~ .nav__toggle-label span::after {
+  background-color: rgb(157, 149, 149);
+}
+
+.nav__toggle:checked ~ .menu-items {
+  transform: scaleX(1);
+}
+
+.nav__toggle:checked ~ .nav__toggle-label span::before{
+  transform: translateX(10px) rotate(20deg);
+}
+
+.nav__toggle-label span,
+.nav__toggle-label span::before,
+.nav__toggle-label span::after {
+  display: block;
+  background-color: var(--primary);
+  width: 1.5em;
+  height: 3px;
+  position: relative;
+  border-radius: 2px;
+  transition: ease 250ms;
+}
+
+.nav__toggle-label span::before,
+.nav__toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav__toggle-label span::before {
+  bottom: var(--bars-vertical-offset);
+}
+
+.nav__toggle-label span::after {
+  top: var(--bars-vertical-offset);
+}
+
+.nav__toggle {
+  display: none;
+}
+
+// burger menu (mobile)
+
