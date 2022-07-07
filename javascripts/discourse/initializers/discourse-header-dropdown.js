@@ -110,13 +110,13 @@ export default {
                 target: menuItem.linkTarget
 
               }, menuItem.linkText,
-              h("div.d-header-dropdown",
-                h("ul.d-dropdown-menu",
-                  menuItem.children.map((child) => {
-                    console.log("inside h");
-                    return h(`li.submenu-item${child.subLinkClass}`,
-                      h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
-                  })
+              h("div.d-header-dropdown", "hello",
+                h("ul.d-dropdown-menu", "world"
+                  // menuItem.children.map((child) => {
+                    
+                  //   return h(`li.submenu-item${child.subLinkClass}`,
+                  //     h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
+                  // })
                 ))
             )
           )
