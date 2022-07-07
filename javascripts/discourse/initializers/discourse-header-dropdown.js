@@ -131,7 +131,7 @@ export default {
               'a.icon', {
                 href: 'https://foo.bar.com/',
                 title: 'Foobar'
-              }, iconNode('heart')
+              }, iconNode('caret-right')
             ))
           );
           // headerLinks.push(
