@@ -110,10 +110,10 @@ export default {
                 target: menuItem.linkTarget
 
               }, menuItem.linkText,
-              h("div.d-header-dropdown", 
-                h("ul.d-dropdown-menu"
+              h(`div.d-header-dropdown`,
+                h(`ul.d-dropdown-menu`
                   // menuItem.children.map((child) => {
-                    
+
                   //   return h(`li.submenu-item${child.subLinkClass}`,
                   //     h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   // })
@@ -136,6 +136,18 @@ export default {
 
       api.decorateWidget(linksPosition, (helper) => {
         return helper.h("ul.custom-header-links", headerLinks);
+      });
+
+      const {
+        iconNode
+      } = require("discourse-common/lib/icon-library");
+      api.decorateWidget('header-icons:before', helper => {
+        return helper.h('li', [
+          helper.h('a.icon', {
+            href: 'https://foo.bar.com/',
+            title: 'Foobar'
+          }, iconNode('heart')),
+        ]);
       });
 
       api.decorateWidget("home-logo:after", (helper) => {
