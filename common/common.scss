@@ -175,7 +175,7 @@ $icon-opacity: 0.7;
   .nav__toggle-label span::before,
   .nav__toggle-label span::after {
     display: block;
-    background-color: #fefefe;
+    background-color: var(--primary);
     width: 1.5em;
     height: 3px;
     position: relative;
