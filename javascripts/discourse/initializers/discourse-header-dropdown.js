@@ -135,7 +135,15 @@ export default {
         });
 
       api.decorateWidget("header-buttons:before", (helper) => {
-        return helper.h("span.hamburger-menu", "space holder");
+        return helper.
+        h("input.nav__toggle", {
+          id: "nav__toggle",
+          type: "checkbox"
+        },
+          h("label.nav__toggle", {
+            for : "nav__toggle"
+          }, 
+            h("span")));
       });
 
       api.decorateWidget("home-logo:after",(helper) => {
