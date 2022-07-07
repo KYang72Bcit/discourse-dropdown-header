@@ -204,8 +204,7 @@ $icon-opacity: 0.7;
 
   .menu-item {
     color: var(--primary-high);
-    // display: flex;
-    // align-items: center;
+    display: block;
     white-space: nowrap;
     &:hover,
     &:active,
