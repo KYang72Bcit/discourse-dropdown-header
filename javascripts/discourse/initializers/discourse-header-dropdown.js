@@ -103,7 +103,7 @@ export default {
             children: childrenArray
           }
           //console.log(menuItem.children);
-          const icon = null;
+          let icon = null;
           if(menuItem.children.length > 0) {
             icon = iconNode('caret-right')
           }
