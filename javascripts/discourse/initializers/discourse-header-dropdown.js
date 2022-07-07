@@ -102,17 +102,17 @@ export default {
 
           headerLinks.push(
             h(
-              `a.menu-item${menuItem.linkClass}`, menuItem.linkText, {
+              `a.menu-item${menuItem.linkClass}`, {
                 title: menuItem.linkTitle,
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
 
-              },
-              h(`div.d-header-dropdown`,
-                h(`ul.d-dropdown-menu`,
+              }, menuItem.linkText,
+              h("div.d-header-dropdown",
+                h("ul.d-dropdown-menu",
                 menuItem.children.map((child) => {
                     return h(`li.submenu-item${child.subLinkClass}`,
-                      h(`a.submenu-link`, child.subAnchorAttributes, child.subLinkText))
+                      h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   })
                 ))
             )
