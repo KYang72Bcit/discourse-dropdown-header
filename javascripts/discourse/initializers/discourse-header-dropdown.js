@@ -29,9 +29,16 @@ export default {
         "header-buttons:before" :
         "home-logo:after";
 
-      const testArray = [];
+     
       const subMenuItemsArray = [];
       const headerLinks = [];
+      headerLinks.push(
+          h('div.menu-content wrap'),
+            h('div.menu-placeholder'),
+              h('div.menu-item-container'),
+                h('div.menu-items')
+
+      )
 
       splitSubmenuItems
         .split("|")
@@ -102,7 +109,7 @@ export default {
             linkTarget,
             children: childrenArray
           }
-          //console.log(menuItem.children);
+        
           let icon = null;
           if(menuItem.children.length > 0) {
             icon = iconNode('caret-right')
@@ -128,40 +135,16 @@ export default {
 
 
 
-          testArray.push(
-            h('li', h(
-              'a.icon', {
-                href: 'https://foo.bar.com/',
-                title: 'Foobar'
-              }, iconNode('caret-right')
-            ))
-          );
-          // headerLinks.push(
-          //   h(
-          //     `li.headerLink${deviceClass}${linkClass}`,
-          //     h("a", anchorAttributes, linkText)
-          //   )
-          // );
+          
         });
 
 
 
       api.decorateWidget(linksPosition, (helper) => {
         return helper.h("ul.custom-header-links", headerLinks);
-        // return helper.h("ul.custom-header-links", testArray);
       });
 
-      // const {
-      //   iconNode
-      // } = require("discourse-common/lib/icon-library");
-      // api.decorateWidget('header-icons:before', helper => {
-      //   return helper.h('li', [
-      //     helper.h('a.icon', {
-      //       href: 'https://foo.bar.com/',
-      //       title: 'Foobar'
-      //     }, iconNode('heart')),
-      //   ]);
-      // });
+    
 
       api.decorateWidget("home-logo:after", (helper) => {
         const dHeader = document.querySelector(".d-header");
