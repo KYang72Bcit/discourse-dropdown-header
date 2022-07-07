@@ -37,9 +37,9 @@ $icon-opacity: 0.7;
     &:hover,
     &:active,
     &:focus {
-      //background: fallback($Menu_item-active_background, $primary-low);
+     
       color: var(--primary-high);
-      cursor: default;
+      cursor: pointer;
       .d-icon-caret-right {
         transform: rotate(90deg);
       }
@@ -89,8 +89,10 @@ $icon-opacity: 0.7;
   .d-dropdown-menu {
     min-width: 160px;
     background: var(--secondary-high);
-    border-radius: 5%;
-    box-shadow: shadow("menu-panel");
+    opacity: 1;
+    // box-shadow: shadow("menu-panel");
+    box-shadow: 0px 3px 5px -1px #ccc;
+    padding-top: 20px;
     margin: 0;
     list-style: none;
   }
@@ -102,10 +104,14 @@ $icon-opacity: 0.7;
     padding: 0.5em;
     font-size: $font-down-1;
     white-space: nowrap;
+    transition: all 0.5s ease;
+    padding-left: 10px;
+    border-left: 2px solid var(--tertiary);
+    transition: all 0.3s ease;
 
     &:hover {
-      color: var(--primary-high);
-      background-color: var(--secondary-high);
+      color: var(--tertiary);
+      background-color: var(--primary-very-low);
     }
   }
 
