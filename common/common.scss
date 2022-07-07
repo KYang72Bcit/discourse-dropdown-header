@@ -221,6 +221,7 @@ $icon-opacity: 0.7;
         left: 0;
         z-index: z("header") + 1;
         transition: 0.5s ease-in;
+        transform: scaleY(1);
         .rtl & {
           left: unset;
           right: 0;
@@ -241,7 +242,7 @@ $icon-opacity: 0.7;
 
   .d-header-dropdown {
     position: relative;
-    display: none;
+    transform: scaleY(0);
     top: 1rem;
   }
 
