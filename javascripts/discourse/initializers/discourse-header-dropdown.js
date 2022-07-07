@@ -136,9 +136,7 @@ export default {
 
         const htmlArray= [];
         htmlArray.push(
-          h('input.nav__toggle#nav__toggle', {
-            type: "checkbox"
-          }), 
+           
             h('label.nav__toggle-label',{
               htmlFor: "nav__toggle"
               }, 
@@ -155,6 +153,9 @@ export default {
         h('div.menu-content wrap',
           h('div.menu-placeholder',
             h('div.menu-item-container')))
+      });
+      api.decorateWidget("home-logo:after",(helper) => {
+        return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
       });
 
       api.decorateWidget("home-logo:after", (helper) => {
