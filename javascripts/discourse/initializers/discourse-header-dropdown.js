@@ -134,16 +134,21 @@ export default {
           
         });
 
-      const burgerMenuElements = [];
-      api.decorateWidget("header-buttons:before", (helper) => {
-        return helper.
-        h("input.nav__toggle", {id: "nav__toggle",type: "checkbox"},
-          ("label.nav__toggle-label", 
-          {
-          for : "nav__toggle"
-        }, h("span"))
-        );
-      });
+        const htmlArray= [];
+        htmlArray.push(
+          h('input.nav__toggle#nav__toggle', {
+            type: "checkbox"
+          }), 
+            h('label.hamburger-menu',{
+              for: "nav__toggle"
+              }, 
+                h('span'))
+        )
+  
+        api.decorateWidget("header-buttons:before", (helper) => {
+          return helper.h(htmlArry);
+          
+        });
 
       api.decorateWidget("home-logo:after",(helper) => {
         return helper.
