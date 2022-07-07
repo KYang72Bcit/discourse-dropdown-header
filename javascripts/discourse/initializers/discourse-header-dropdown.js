@@ -99,6 +99,8 @@ export default {
             linkTarget,
             children: childrenArray
           }
+          console.log(menuItem.children);
+
 
           headerLinks.push(
             h(
