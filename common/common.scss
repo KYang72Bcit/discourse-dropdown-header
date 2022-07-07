@@ -25,9 +25,15 @@ $icon-opacity: 0.7;
 
   .menu-item {
     position: relative;
+    color: var(--primary-high);
+    border: none;
+    padding: 0 0.5em;
+    font-size: $font-up-1;
+    transition: all 0.15s;
     display: flex;
     align-items: center;
     white-space: nowrap;
+
     &:hover,
     &:active,
     &:focus {
