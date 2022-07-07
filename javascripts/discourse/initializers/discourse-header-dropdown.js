@@ -32,13 +32,7 @@ export default {
      
       const subMenuItemsArray = [];
       const headerLinks = [];
-      headerLinks.push(
-          h('div.menu-content wrap'),
-            h('div.menu-placeholder'),
-              h('div.menu-item-container'),
-                h('div.menu-items')
-
-      )
+    
 
       splitSubmenuItems
         .split("|")
@@ -138,10 +132,15 @@ export default {
           
         });
 
-
+      api.decorateWidget(linksPosition,(helper) => {
+        return helper.
+        h('div.menu-content wrap',
+          h('div.menu-placeholder',
+            h('div.menu-item-container')))
+      });
 
       api.decorateWidget(linksPosition, (helper) => {
-        return helper.h("ul.custom-header-links", headerLinks);
+        return helper.h("div.menu-items", headerLinks);
       });
 
     
