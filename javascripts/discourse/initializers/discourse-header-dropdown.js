@@ -146,7 +146,7 @@ export default {
         )
   
         api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h(htmlArry);
+          return helper.h(htmlArray);
           
         });
 
