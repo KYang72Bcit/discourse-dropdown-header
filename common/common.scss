@@ -87,11 +87,11 @@ $icon-opacity: 0.7;
   }
 
   .d-dropdown-menu {
-    min-width: 160px;
+    min-width: 120px;
     background: #f1f4f6;
     opacity: 1;
-    // box-shadow: shadow("menu-panel");
-    box-shadow: 0px 3px 5px -1px #ccc;
+    box-shadow: shadow("menu-panel");
+    // box-shadow: 0px 3px 5px -1px #ccc;
     //padding-top: 20px;
     margin: 0px;
     list-style: none;
@@ -102,7 +102,7 @@ $icon-opacity: 0.7;
     align-items: center;
     color: var(--primary-high);
     padding: 0.5rem 1.5rem;
-    padding-left: 15px;
+    // padding-left: 15px;
   
     font-size: $font-down-1;
     white-space: nowrap;
