@@ -135,8 +135,8 @@ export default {
         });
 
       api.decorateWidget("header-buttons:before", (helper) => {
-        //return helper.h("span.hamburger-menu", iconNode('heart'));
-        return helper.h("span.hamburger-menu");
+        return helper.h("span.hamburger-menu", iconNode('heart'));
+        //return helper.h("span.hamburger-menu");
       });
 
       api.decorateWidget("home-logo:after",(helper) => {
