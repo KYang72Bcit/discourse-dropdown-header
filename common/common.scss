@@ -153,10 +153,6 @@ $icon-opacity: 0.7;
   // padding: 0;
 }
 
-.nav__toggle:checked ~ .menu-items > .menu-item {
-  display: none;
-}
-
 .nav__toggle:checked ~ .nav__toggle-label span::before{
   transform: translateX(10px) rotate(20deg);
 }
