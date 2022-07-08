@@ -148,9 +148,8 @@ $icon-opacity: 0.7;
 }
 
 .nav__toggle:checked ~ .menu-items {
-  transform: scaleX(1) !important;
+  transform: scaleX(1);
   transition: ease-in-out 0.25s;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.27);
   // padding: 0;
 }
 
@@ -246,6 +245,9 @@ $icon-opacity: 0.7;
     }
   }
 
+  .nav__toggle:checked ~ .menu-items {
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.27);
+  }
   .d-header-dropdown {
     display: block;
     visibility: hidden;
