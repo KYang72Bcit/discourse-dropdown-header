@@ -134,19 +134,7 @@ export default {
           
         });
 
-        const htmlArray= [];
-        htmlArray.push(
-           
-            h('label.nav__toggle-label',{
-              htmlFor: "nav__toggle"
-              }, 
-                h('span.hamburger-menu'))
-        )
-  
-        api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h("div.some-wrapper", htmlArray);
-          
-        });
+        
 
       api.decorateWidget("home-logo:after",(helper) => {
         return helper.
@@ -162,6 +150,18 @@ export default {
         return helper.h("div.menu-items", headerLinks);
       });
 
+      const htmlArray= [];
+        htmlArray.push(
+            h('label.nav__toggle-label',{
+              htmlFor: "nav__toggle"
+              }, 
+                h('span.hamburger-menu'))
+        )
+  
+        api.decorateWidget("header-buttons:before", (helper) => {
+          return helper.h("div.some-wrapper", htmlArray);
+          
+        });
     
 
       api.decorateWidget("home-logo:after", (helper) => {
