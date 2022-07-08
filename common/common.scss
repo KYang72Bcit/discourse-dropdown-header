@@ -204,6 +204,7 @@ $icon-opacity: 0.7;
     right: 0;
     transform: scaleX(0);
     transition: ease-in-out 0.3s;
+    animation-direction: right;
   }
 
   .menu-item {
