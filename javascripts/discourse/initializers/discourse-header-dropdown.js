@@ -158,7 +158,7 @@ export default {
                 h('span.hamburger-menu'))
         )
   
-        api.decorateWidget("header-buttons:before", (helper) => {
+        api.decorateWidget("home-logo:after", (helper) => {
           return helper.h("div.some-wrapper", htmlArray);
           
         });
