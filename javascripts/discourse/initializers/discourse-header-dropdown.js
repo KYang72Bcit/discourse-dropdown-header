@@ -204,9 +204,11 @@ export default {
         burgerMenuIcon.addEventListener('click', e => {
           console.log(e.target);
           if (!isOpen) {
-            styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);}"
+            styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);}";
+            isOpen = true;
           } else {
-            styleEle.innerHTML = ""
+            styleEle.innerHTML = "";
+            isOpen = false;
           }
         })
       })
