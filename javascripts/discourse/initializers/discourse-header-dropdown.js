@@ -199,8 +199,15 @@ export default {
       api.onPageChange(() => {
         const burgerMenuIcon = document.querySelector('.nav__toggle-label');
         console.log(burgerMenuIcon);
+        let isOpen = false;
+        let styleEle = document.head.appendChild(document.createElement("style"));
         burgerMenuIcon.addEventListener('click', e => {
           console.log(e.target);
+          if (!isOpen) {
+            styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);}"
+          } else {
+            styleEle.innerHTML = ""
+          }
         })
       })
     });
