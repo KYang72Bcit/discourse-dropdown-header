@@ -186,8 +186,11 @@ $icon-opacity: 0.7;
     color: var(--primary-high);
     display: block;
     white-space: nowrap;
-    &:hover,
-    &:active,
+
+    .d-icon-caret-right {
+      margin-left: 0.25em;
+      transition: transform 0.15s ease-in-out;
+      &:active,
     &:focus {
      
       color: var(--primary-high);
@@ -210,11 +213,6 @@ $icon-opacity: 0.7;
         }
       }
     }
-
-    .d-icon-caret-right {
-      margin-left: 0.25em;
-      transition: transform 0.15s ease-in-out;
-
       .rtl & {
         margin-left: 0em;
         margin-right: 0.25em;
