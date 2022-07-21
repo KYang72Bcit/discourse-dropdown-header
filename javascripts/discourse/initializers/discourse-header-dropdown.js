@@ -212,6 +212,9 @@ export default {
             isOpen = false;
           }
         })
+
+        const arrows = document.querySelectorAll('.d-icon-caret-right');
+        console.log(arrows)
       })
     });
   },
