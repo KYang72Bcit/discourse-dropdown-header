@@ -16,12 +16,12 @@ export default {
     withPluginApi("0.8.20", (api) => {
 
       const {
-          iconNode
-        } = require("discourse-common/lib/icon-library");
+        iconNode
+      } = require("discourse-common/lib/icon-library");
 
       const splitMenuItems = settings.Menu_items;
       const splitSubmenuItems = settings.Submenu_items;
-    
+
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
@@ -31,10 +31,10 @@ export default {
         "header-buttons:before" :
         "home-logo:after";
 
-     
+
       const subMenuItemsArray = [];
       const headerLinks = [];
-    
+
 
       splitSubmenuItems
         .split("|")
@@ -105,9 +105,9 @@ export default {
             linkTarget,
             children: childrenArray
           }
-        
+
           let icon = null;
-          if(menuItem.children.length > 0) {
+          if (menuItem.children.length > 0) {
             icon = iconNode('caret-right')
           }
           headerLinks.push(
@@ -118,52 +118,54 @@ export default {
                 target: menuItem.linkTarget
 
               }, [menuItem.linkText,
-              h(`div.d-header-dropdown`,
-                h(`ul.d-dropdown-menu`,
-                  menuItem.children.map((child) => {
+                h(`div.d-header-dropdown`,
+                  h(`ul.d-dropdown-menu`,
+                    menuItem.children.map((child) => {
 
-                    return h(`li.submenu-item${child.subLinkClass}`,
-                      h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
-                  })
-                ))]
-            ), icon]
-            )
+                      return h(`li.submenu-item${child.subLinkClass}`,
+                        h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
+                    })
+                  ))
+              ]
+            ), icon])
           )
 
 
 
-          
+
         });
 
-        const htmlArray= [];
-        htmlArray.push(
-           
-            h('label.nav__toggle-label',{
-              htmlFor: "nav__toggle"
-              }, 
-                h('span.hamburger-menu'))
-        )
-  
-        api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h("div.some-wrapper", htmlArray);
-          
-        });
+      const htmlArray = [];
+      htmlArray.push(
 
-      api.decorateWidget("home-logo:after",(helper) => {
+        h('label.nav__toggle-label', {
+            htmlFor: "nav__toggle"
+          },
+          h('span.hamburger-menu'))
+      )
+
+      api.decorateWidget("header-buttons:before", (helper) => {
+        return helper.h("div.some-wrapper", htmlArray);
+
+      });
+
+      api.decorateWidget("home-logo:after", (helper) => {
         return helper.
         h('div.menu-content wrap',
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
-      api.decorateWidget("home-logo:after",(helper) => {
-        return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
+      api.decorateWidget("home-logo:after", (helper) => {
+        return helper.h('input.nav__toggle#nav__toggle', {
+          type: "checkbox"
+        })
       });
 
       api.decorateWidget("home-logo:after", (helper) => {
         return helper.h("div.menu-items", headerLinks);
       });
 
-    
+
 
       api.decorateWidget("home-logo:after", (helper) => {
         const dHeader = document.querySelector(".d-header");
@@ -206,6 +208,7 @@ export default {
           // console.log(e.target);
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);}";
+
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
@@ -213,8 +216,20 @@ export default {
           }
         })
         const menuContainer = document.querySelector('.menu-items');
-        const arrows = menuContainer.querySelectorAll('.d-icon-caret-right');
-        console.log(arrows)
+
+        const arrows = Array.from(menuContainer.querySelectorAll('.d-icon-caret-right'));
+        const subDropDownTogglers = Array(arrows.length).fill(false);
+        arrows.forEach((arrow, index) => {
+          arrow.addEventListener('click', (e) => {
+            const targetIndex = subDropDownTogglers.findIndex(toggler => toggler === true);
+            arrows[targetIndex].classList.remove('icon-caret--active');
+            subDropDownTogglers.fill(false);
+            if (!e.target.classList.contains('icon-caret--active')) {
+              subDropDownTogglers[arrows.findIndex(arrow => arrow === e.target)] = true;
+              e.target.classList.add('icon-caret--active');
+            }
+          })
+        })
       })
     });
   },
