@@ -212,8 +212,8 @@ export default {
             isOpen = false;
           }
         })
-
-        const arrows = document.querySelectorAll('.d-icon-caret-right');
+        const menuContainer = document.querySelector('.menu-items');
+        const arrows = menuContainer.querySelectorAll('.d-icon-caret-right');
         console.log(arrows)
       })
     });
