@@ -218,6 +218,7 @@ export default {
         const menuContainer = document.querySelector('.menu-items');
 
         const arrows = Array.from(menuContainer.querySelectorAll('.d-icon-caret-right'));
+        console.log(arrows)
         const subDropDownTogglers = Array(arrows.length).fill(false);
         arrows.forEach((arrow, index) => {
           arrow.addEventListener('click', (e) => {
