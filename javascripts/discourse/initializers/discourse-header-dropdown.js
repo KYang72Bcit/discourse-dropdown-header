@@ -111,13 +111,13 @@ export default {
             icon = iconNode('caret-right')
           }
           headerLinks.push(
-            h('div.menu-item-wrapper', h(
+            h('div.menu-item-wrapper', [h(
               `a.menu-item${menuItem.linkClass}`, {
                 title: menuItem.linkTitle,
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
 
-              }, [menuItem.linkText, icon,
+              }, [menuItem.linkText,
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
@@ -126,7 +126,8 @@ export default {
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   })
                 ))]
-            ))
+            ), icon]
+            )
           )
 
 
