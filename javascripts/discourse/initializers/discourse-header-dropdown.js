@@ -221,12 +221,14 @@ export default {
         const subDropDownTogglers = Array(arrows.length).fill(false);
         arrows.forEach((arrow, index) => {
           arrow.addEventListener('click', (e) => {
+            console.log("listener workin");
             const targetIndex = subDropDownTogglers.findIndex(toggler => toggler === true);
             arrows[targetIndex].classList.remove('icon-caret--active');
             subDropDownTogglers.fill(false);
             if (!e.target.classList.contains('icon-caret--active')) {
               subDropDownTogglers[arrows.findIndex(arrow => arrow === e.target)] = true;
               e.target.classList.add('icon-caret--active');
+              console.log(e);
             }
           })
         })
