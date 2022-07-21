@@ -196,6 +196,12 @@ export default {
           },
         });
       }
+      api.onPageChange(() => {
+        const burgerMenuIcon = document.querySelector('.nav__toggle-label');
+        burgerMenuIcon.addEventListener('click', e => {
+          console.log(e.target);
+        })
+      })
     });
   },
 };

@@ -112,12 +112,13 @@ $icon-opacity: 0.7;
   cursor: pointer;
   margin-bottom: 0px;
   margin-right: 10px;
+
 }
 
 .nav__toggle-label:hover.nav__toggle-label span,
 .nav__toggle-label:hover.nav__toggle-label span::before,
 .nav__toggle-label:hover.nav__toggle-label span::after{
-  background-color: rgb(157, 149, 149);
+  background-color: var(--primary);
 }
 
 .nav__toggle:checked ~ .nav__toggle-label span,
@@ -140,7 +141,7 @@ $icon-opacity: 0.7;
 .nav__toggle-label span::before,
 .nav__toggle-label span::after {
   display: block;
-  background-color: var(--primary);
+  background-color: var(--header_primary-low-mid);
   width: 1.5em;
   height: 3px;
   position: relative;
