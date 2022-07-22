@@ -3,11 +3,9 @@ $icon-opacity: 0.7;
 
 
   .menu-content {
-    //background: fallback($Menu_background, $secondary);
     padding-left: 3%;
     display: flex;
     align-items: center;
-    // justify-content: if($Invert_position == "true", flex-end, flex-start);
   }
 
   .menu-items {
@@ -20,7 +18,7 @@ $icon-opacity: 0.7;
     color: var(--primary-high);
     border: none;
     padding: 0 0.5em;
-    font-size: $font-up-1;
+    font-size: $font-0;
     transition: all 0.15s;
     display: flex;
     align-items: center;
@@ -40,27 +38,11 @@ $icon-opacity: 0.7;
         top: $item-height;
         left: 0;
         z-index: z("header") + 1;
-        //border-top: 6px solid #83b059;
-
         .rtl & {
           left: unset;
           right: 0;
         }
       }
-
-      // @if $Invert_position == "true" {
-      //   &:last-child {
-      //     .d-header-dropdown {
-      //       left: unset;
-      //       right: 0;
-
-      //       .rtl & {
-      //         right: unset;
-      //         left: 0;
-      //       }
-      //     }
-      //   }
-      // }
     }
 
     .d-icon-caret-right {
@@ -84,8 +66,6 @@ $icon-opacity: 0.7;
     background: #f1f4f6;
     opacity: 1;
     box-shadow: shadow("menu-panel");
-    // box-shadow: 0px 3px 5px -1px #ccc;
-    //padding-top: 20px;
     margin: 0px;
     list-style: none;
   }
@@ -96,8 +76,6 @@ $icon-opacity: 0.7;
     text-align: center;
     color: var(--primary-high);
     padding: 0.5rem 1.5rem;
-    // padding-left: 15px;
-  
     font-size: $font-down-1;
     white-space: nowrap;
     transition: all 0.5s ease;
@@ -105,6 +83,7 @@ $icon-opacity: 0.7;
     &:hover {
       color: #83b059!important;
       transition: all 0.3s ease;
+      transform-origin: left;
       padding-left: 25px;
       border-left: 4px solid #83b059;
       background-color: #f3f7fa;
@@ -150,7 +129,7 @@ $icon-opacity: 0.7;
 .nav__toggle:checked ~ .menu-items {
   transform: scaleX(1);
   transition: ease-in-out 0.25s;
-  // padding: 0;
+  transform-origin: left;
 }
 
 .nav__toggle:checked ~ .nav__toggle-label span::before{
@@ -203,13 +182,14 @@ $icon-opacity: 0.7;
     right: 0;
     transform: scaleX(0);
     transition: ease-in-out 0.3s;
-    animation-direction: right;
+    transform-origin: left;
   }
 
   .menu-item {
     color: var(--primary-high);
     display: block;
     white-space: nowrap;
+    &:hover,
     &:active,
     &:focus {
      
@@ -226,6 +206,7 @@ $icon-opacity: 0.7;
         visibility: visible;
         transform: scaleY(1);
         transition: 0.3s ease-in-out;
+        transform-origin: top;
         .rtl & {
           left: unset;
           right: 0;
