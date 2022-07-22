@@ -3,9 +3,11 @@ $icon-opacity: 0.7;
 
 
   .menu-content {
+    //background: fallback($Menu_background, $secondary);
     padding-left: 3%;
     display: flex;
     align-items: center;
+    // justify-content: if($Invert_position == "true", flex-end, flex-start);
   }
 
   .menu-items {
@@ -13,25 +15,20 @@ $icon-opacity: 0.7;
     height: $item-height;
   }
 
-  .menu-item-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .menu-item {
     position: relative;
     color: var(--primary-high);
     border: none;
     padding: 0 0.5em;
-    font-size: $font-0;
+    font-size: $font-up-1;
     transition: all 0.15s;
     display: flex;
     align-items: center;
     white-space: nowrap;
 
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
      
       color: var(--primary-high);
       cursor: pointer;
@@ -43,11 +40,27 @@ $icon-opacity: 0.7;
         top: $item-height;
         left: 0;
         z-index: z("header") + 1;
+        //border-top: 6px solid #83b059;
+
         .rtl & {
           left: unset;
           right: 0;
         }
       }
+
+      // @if $Invert_position == "true" {
+      //   &:last-child {
+      //     .d-header-dropdown {
+      //       left: unset;
+      //       right: 0;
+
+      //       .rtl & {
+      //         right: unset;
+      //         left: 0;
+      //       }
+      //     }
+      //   }
+      // }
     }
 
     .d-icon-caret-right {
@@ -71,6 +84,8 @@ $icon-opacity: 0.7;
     background: #f1f4f6;
     opacity: 1;
     box-shadow: shadow("menu-panel");
+    // box-shadow: 0px 3px 5px -1px #ccc;
+    //padding-top: 20px;
     margin: 0px;
     list-style: none;
   }
@@ -81,6 +96,8 @@ $icon-opacity: 0.7;
     text-align: center;
     color: var(--primary-high);
     padding: 0.5rem 1.5rem;
+    // padding-left: 15px;
+  
     font-size: $font-down-1;
     white-space: nowrap;
     transition: all 0.5s ease;
@@ -88,7 +105,6 @@ $icon-opacity: 0.7;
     &:hover {
       color: #83b059!important;
       transition: all 0.3s ease;
-      transform-origin: left;
       padding-left: 25px;
       border-left: 4px solid #83b059;
       background-color: #f3f7fa;
@@ -117,13 +133,12 @@ $icon-opacity: 0.7;
   cursor: pointer;
   margin-bottom: 0px;
   margin-right: 10px;
-
 }
 
 .nav__toggle-label:hover.nav__toggle-label span,
 .nav__toggle-label:hover.nav__toggle-label span::before,
 .nav__toggle-label:hover.nav__toggle-label span::after{
-  background-color: var(--primary);
+  background-color: rgb(157, 149, 149);
 }
 
 .nav__toggle:checked ~ .nav__toggle-label span,
@@ -135,14 +150,18 @@ $icon-opacity: 0.7;
 .nav__toggle:checked ~ .menu-items {
   transform: scaleX(1);
   transition: ease-in-out 0.25s;
-  transform-origin: left;
+  // padding: 0;
+}
+
+.nav__toggle:checked ~ .nav__toggle-label span::before{
+  transform: translateX(10px) rotate(20deg);
 }
 
 .nav__toggle-label span,
 .nav__toggle-label span::before,
 .nav__toggle-label span::after {
   display: block;
-  background-color: var(--header_primary-low-mid);
+  background-color: var(--primary);
   width: 1.5em;
   height: 3px;
   position: relative;
@@ -184,42 +203,45 @@ $icon-opacity: 0.7;
     right: 0;
     transform: scaleX(0);
     transition: ease-in-out 0.3s;
-    transform-origin: left;
-  }
-
-  .d-icon-caret-right {
-    margin-left: 0.25em;
-    transition: transform 200ms ease-in-out;
-    cursor: pointer;
-  &:active,
-  &:focus {
-    color: var(--primary-high);
-    transform: rotate(90deg);
-  }
-    .rtl & {
-      margin-left: 0em;
-      margin-right: 0.25em;
-    }
-  }
-
-  .icon-caret--active {
-      top: 8px;
-      left: 0;
-      z-index: z("header") + 1;
-      height: auto;
-      visibility: visible;
-      transition: 0.3s ease-in-out;
-      transform-origin: top;
-      .rtl & {
-        left: unset;
-        right: 0;
-      }
+    animation-direction: right;
   }
 
   .menu-item {
     color: var(--primary-high);
     display: block;
     white-space: nowrap;
+    &:active,
+    &:focus {
+     
+      color: var(--primary-high);
+      cursor: pointer;
+      .d-icon-caret-right {
+        transform: rotate(90deg);
+      }
+      .d-header-dropdown {
+        top: 8px;
+        left: 0;
+        z-index: z("header") + 1;
+        height: auto;
+        visibility: visible;
+        transform: scaleY(1);
+        transition: 0.3s ease-in-out;
+        .rtl & {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+
+    .d-icon-caret-right {
+      margin-left: 0.25em;
+      transition: transform 0.15s ease-in-out;
+
+      .rtl & {
+        margin-left: 0em;
+        margin-right: 0.25em;
+      }
+    }
   }
 
   .nav__toggle:checked ~ .menu-items {
