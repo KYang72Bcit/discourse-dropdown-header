@@ -112,7 +112,7 @@ export default {
           }
 
           headerLinks.push(
-            h('div.menu-item-wrapper',{tabindex:"0"} [h(
+            h('div.menu-item-wrapper',{tabindex:"0"}, [h(
               `a.menu-item${menuItem.linkClass}`, {
                 title: menuItem.linkTitle,
                 href: menuItem.linkHref,
