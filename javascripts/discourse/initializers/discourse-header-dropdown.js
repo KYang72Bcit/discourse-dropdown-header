@@ -204,9 +204,11 @@ export default {
         burgerMenuIcon.addEventListener('click', e => {
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
+            burgerMenuIcon.classList.add(".nav__toggle-label--active");
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
+            burgerMenuIcon.classList.remove(".nav__toggle-label--active");
             isOpen = false;
           }
         })
