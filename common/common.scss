@@ -220,7 +220,7 @@ $icon-opacity: 0.7;
 
     &:hover,
     &:active,
-    &:focus {
+    &:focus-within {
       color: var(--primary-high);
       cursor: pointer;
       .d-icon-caret-right {
