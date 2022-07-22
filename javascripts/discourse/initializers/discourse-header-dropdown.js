@@ -202,13 +202,14 @@ export default {
         let isOpen = false;
         let styleEle = document.head.appendChild(document.createElement("style"));
         burgerMenuIcon.addEventListener('click', e => {
+          const hamburgerCore = burgerMenuIcon.querySelector('.hamburger-menu');
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
-            burgerMenuIcon.classList.add("nav__toggle-label--active");
+            hamburgerCore.classList.add("nav__toggle-label--active");
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
-            burgerMenuIcon.classList.remove("nav__toggle-label--active");
+            hamburgerCore.classList.remove("nav__toggle-label--active");
             isOpen = false;
           }
         })
