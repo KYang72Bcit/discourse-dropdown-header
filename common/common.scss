@@ -13,6 +13,12 @@ $icon-opacity: 0.7;
     height: $item-height;
   }
 
+  .menu-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .menu-item {
     position: relative;
     color: var(--primary-high);
@@ -117,7 +123,7 @@ $icon-opacity: 0.7;
 .nav__toggle-label:hover.nav__toggle-label span,
 .nav__toggle-label:hover.nav__toggle-label span::before,
 .nav__toggle-label:hover.nav__toggle-label span::after{
-  background-color: rgb(157, 149, 149);
+  background-color: var(--primary);
 }
 
 .nav__toggle:checked ~ .nav__toggle-label span,
@@ -140,7 +146,7 @@ $icon-opacity: 0.7;
 .nav__toggle-label span::before,
 .nav__toggle-label span::after {
   display: block;
-  background-color: var(--primary);
+  background-color: var(--header_primary-low-mid);
   width: 1.5em;
   height: 3px;
   position: relative;
@@ -185,45 +191,46 @@ $icon-opacity: 0.7;
     transform-origin: left;
   }
 
-  .menu-item {
-    color: var(--primary-high);
-    display: block;
-    white-space: nowrap;
-    &:hover,
-    &:active,
-    &:focus {
-     
-      color: var(--primary-high);
+  .menu-item-wrapper {
+    .d-icon-caret-right {
+      margin-left: 0.25em;
+      transition: transform 200ms ease-in-out;
       cursor: pointer;
-      .d-icon-caret-right {
-        transform: rotate(90deg);
-      }
-      .d-header-dropdown {
-        top: 8px;
-        left: 0;
-        z-index: z("header") + 1;
-        height: auto;
-        visibility: visible;
-        transform: scaleY(1);
-        transition: 0.3s ease-in-out;
-        transform-origin: top;
-        .rtl & {
-          left: unset;
-          right: 0;
+    }
+    .menu-item {
+      color: var(--primary-high);
+      display: block;
+      white-space: nowrap;
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--primary-high);
+        cursor: pointer;
+        .d-icon-caret-right {
+          transform: rotate(90deg);
+          .rtl & {
+            margin-left: 0em;
+            margin-right: 0.25em;
+          }
+        }
+        .d-header-dropdown {
+          top: 8px;
+          left: 0;
+          z-index: z("header") + 1;
+          height: auto;
+          visibility: visible;
+          transform: scaleY(1);
+          transition: 0.3s ease-in-out;
+          transform-origin: top;
+          .rtl & {
+            left: unset;
+            right: 0;
+          }
         }
       }
     }
-
-    .d-icon-caret-right {
-      margin-left: 0.25em;
-      transition: transform 0.15s ease-in-out;
-
-      .rtl & {
-        margin-left: 0em;
-        margin-right: 0.25em;
-      }
-    }
   }
+
 
   .nav__toggle:checked ~ .menu-items {
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.27);
@@ -243,10 +250,3 @@ $icon-opacity: 0.7;
     display: block;
   }
 }
-
-  // desktop
-
-
-
-// burger menu (mobile)
-

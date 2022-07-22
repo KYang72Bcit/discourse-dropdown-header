@@ -110,22 +110,22 @@ export default {
           if(menuItem.children.length > 0) {
             icon = iconNode('caret-right')
           }
+
           headerLinks.push(
-            h(
+            h('div.menu-item-wrapper', [h(
               `a.menu-item${menuItem.linkClass}`, {
                 title: menuItem.linkTitle,
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
-
-              }, [menuItem.linkText, icon,
+              }, [menuItem.linkText,
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
-
                     return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                   })
                 ))]
+            ), icon]
             )
           )
 
@@ -196,6 +196,22 @@ export default {
           },
         });
       }
+
+      api.onPageChange(() => {
+        const burgerMenuIcon = document.querySelector('.nav__toggle-label');
+        let isOpen = false;
+        let styleEle = document.head.appendChild(document.createElement("style"));
+        burgerMenuIcon.addEventListener('click', e => {
+          if (!isOpen) {
+            styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
+            isOpen = true;
+          } else {
+            styleEle.innerHTML = "";
+            isOpen = false;
+          }
+        })
+      })
+
     });
   },
 };
