@@ -163,10 +163,8 @@ $icon-opacity: 0.7;
   top: var(--bars-vertical-offset);
 }
 
-.nav__toggle-label--active,
-.nav__toggle-label--active::before,
-.nav__toggle-label--active::after {
-  background-color: var(--primary) !important;
+.nav__toggle-label--active {
+  background-color: var(--primary);
 }
 
 .nav__toggle {

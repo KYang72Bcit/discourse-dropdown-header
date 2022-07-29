@@ -205,11 +205,11 @@ export default {
           const hamburgerCore = burgerMenuIcon.querySelector('.hamburger-menu');
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
-            hamburgerCore.classList.add("nav__toggle-label--active");
+            burgerMenuIcon.classList.add("nav__toggle-label--active");
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
-            hamburgerCore.classList.remove("nav__toggle-label--active");
+            burgerMenuIcon.classList.remove("nav__toggle-label--active");
             isOpen = false;
           }
         })
