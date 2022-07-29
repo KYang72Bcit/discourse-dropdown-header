@@ -1,5 +1,11 @@
 $item-height: 40px;
 
+.nav__toggle-label:hover.nav__toggle-label span,
+.nav__toggle-label:hover.nav__toggle-label span::before,
+.nav__toggle-label:hover.nav__toggle-label span::after {
+  background-color: var(--primary);
+}
+
 // @if $Fixed_mode == "true" {
 //   .top-menu {
 //     position: fixed;
