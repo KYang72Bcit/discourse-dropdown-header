@@ -22,7 +22,6 @@ export default {
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
-      splitMenuItems += "Discussions, Discussions, #, self";
       console.log(splitMenuItems);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -73,23 +72,23 @@ export default {
           subMenuItemsArray.push(subMenuItem);
         })
 
-      //  fetch('/categories.json')
-      //   .then(res => res.json())
-      //   .then(res => res.category_list.categories)
-      //   .then(data => data.forEach(category => {
-      //     //console.log(category);
-      //     subMenuItemsArray.push({
-      //       parent: "discussions",
-      //       subLinkClass: category.name.toLowerCase().replace(/\s/gi, "-"),
-      //       subLinkText: category.name,
-      //       subAnchorAttributes: {
-      //         target: "_self",
-      //         href: `${window.location.hostname}/c/${category.slug}/${category.id}`
-      //       }
+       fetch('/categories.json')
+        .then(res => res.json())
+        .then(res => res.category_list.categories)
+        .then(data => data.forEach(category => {
+          //console.log(category);
+          subMenuItemsArray.push({
+            parent: "discussions",
+            subLinkClass: category.name.toLowerCase().replace(/\s/gi, "-"),
+            subLinkText: category.name,
+            subAnchorAttributes: {
+              target: "_self",
+              href: `${window.location.hostname}/c/${category.slug}/${category.id}`
+            }
 
-      //     })
+          })
           
-      //   }))
+        }))
 
 
 
