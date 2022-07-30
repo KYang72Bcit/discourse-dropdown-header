@@ -90,7 +90,7 @@ export default {
           
         }))
 
-        console.log("this is the subMebueItems Array" + subMenuItemsArray);
+        console.log(subMenuItemsArray);
 
 
 
