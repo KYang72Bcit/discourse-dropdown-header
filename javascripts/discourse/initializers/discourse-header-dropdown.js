@@ -119,8 +119,8 @@ export default {
             // if(subItem.parent === "Discussions"){
             //   console.log(subItem);
             // }
-            console.log( "this is " + linkText);
-            console.log ("this is " + subItem.parent);
+            console.log( "this is linkText" + linkText);
+            console.log ("this is parent" + subItem.parent);
             if (subItem.parent === linkText) {
               
               childrenArray.push(subItem);
