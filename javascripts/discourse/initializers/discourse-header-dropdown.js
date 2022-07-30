@@ -78,7 +78,7 @@ export default {
         .then(data => data.forEach(category => {
           //console.log(category);
           subMenuItemsArray.push({
-            parent: "discussions",
+            parent: "Discussions",
             subLinkClass: category.name.toLowerCase().replace(/\s/gi, "-"),
             subLinkText: category.name,
             subAnchorAttributes: {
@@ -126,10 +126,8 @@ export default {
             children: childrenArray
           }
         
-          let icon = null;
-          if(menuItem.children.length > 0) {
-            icon = iconNode('caret-right')
-          }
+          let icon = iconNode('caret-right');
+        
 
           headerLinks.push(
             h('div.menu-item-wrapper',{tabIndex:"0"}, [h(
