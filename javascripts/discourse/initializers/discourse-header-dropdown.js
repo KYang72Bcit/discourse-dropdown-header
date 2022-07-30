@@ -23,11 +23,16 @@ export default {
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
+
       const fetchData = async function(){
         const categiroesRaw = await fetch('/categories.json');
         const categoreisJason = await categiroesRaw.json();
         const categoriesList = await categoreisJason.category_list.categories;
-        categoriesList.forEach(category => category => {
+        return categoriesList;
+         
+      }
+      console.log(fetchData().then((categries) => {
+        categries.forEach(category => {
           subMenuItemsArray.push({
             parent: "Discussions",
             subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
@@ -42,10 +47,8 @@ export default {
           })
           
         });
-        return categoriesList;
-         
-      }
-      console.log(fetchData());
+
+      }));
       // fetchData();
      
       // const fetchData1 = async function() {
