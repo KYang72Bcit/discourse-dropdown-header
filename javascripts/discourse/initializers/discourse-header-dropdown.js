@@ -82,8 +82,10 @@ export default {
             subLinkClass: category.name.toLowerCase().replace(/\s/gi, "-"),
             subLinkText: category.name,
             subAnchorAttributes: {
+              title:category.name,
               target: "_self",
-              href: `${window.location.hostname}/c/${category.slug}/${category.id}`
+              href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+              className:category.name.toLowerCase().replace(/\s/gi, "-"),
             }
 
           })
