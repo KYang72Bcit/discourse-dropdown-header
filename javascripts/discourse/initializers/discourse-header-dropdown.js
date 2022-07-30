@@ -22,7 +22,7 @@ export default {
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
-      console.log(splitMenuItems);
+      //console.log(splitMenuItems);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
@@ -89,6 +89,8 @@ export default {
           })
           
         }))
+
+        console.log("this is the subMebueItems Array" + subMenuItemsArray);
 
 
 
