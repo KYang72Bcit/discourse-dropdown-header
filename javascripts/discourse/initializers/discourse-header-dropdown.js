@@ -23,7 +23,15 @@ export default {
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
-      const fetchData = async function() {
+      // const fetchData = async function(){
+      //   const categiroesObj = await fetch('/categories.json');
+      //   console.log(categiroesObj).json();
+      //   //return categiroesObj.json();
+         
+      // }
+      // fetchData();
+     
+      const fetchData1 = async function() {
         fetch('/categories.json')
         .then(res => res.json())
         .then(res => res.category_list.categories)
@@ -45,7 +53,7 @@ export default {
         
         
       }
-      //console.log(splitMenuItems);
+     
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
@@ -101,7 +109,7 @@ export default {
 
 
 
-      splitMenuItems
+      fetchData1().then(splitMenuItems
         .split("|")
         .filter(Boolean)
         .map((customHeaderLinksArray) => {
@@ -121,7 +129,7 @@ export default {
 
           const childrenArray = [];
           
-          fetchData().then(subMenuItemsArray.forEach((subItem) => {
+          subMenuItemsArray.forEach((subItem) => {
             console.log(subItem);
             if(subItem.parent === "Discussions"){
               console.log(subItem);
@@ -130,7 +138,7 @@ export default {
               
               childrenArray.push(subItem);
             }
-          }))
+          })
 
           const menuItem = {
             linkClass,
@@ -165,7 +173,7 @@ export default {
 
 
           
-        });
+        }));
 
         const htmlArray= [];
         htmlArray.push(
@@ -179,7 +187,7 @@ export default {
         api.decorateWidget("header-buttons:before", (helper) => {
           return helper.h("div.some-wrapper", htmlArray);
           
-        });
+        });;
 
       api.decorateWidget("home-logo:after",(helper) => {
         return helper.
