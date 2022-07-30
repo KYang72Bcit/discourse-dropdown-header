@@ -20,9 +20,10 @@ export default {
         } = require("discourse-common/lib/icon-library");
 
       const splitMenuItems = settings.Menu_items;
-      console.log(splitMenuItems);
+     
       const splitSubmenuItems = settings.Submenu_items;
-      // splitMenuItems.push()
+      splitMenuItems += "Discussions, Discussions, #, self";
+      console.log(splitMenuItems);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
