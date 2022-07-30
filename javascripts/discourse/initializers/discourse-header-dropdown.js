@@ -23,19 +23,11 @@ export default {
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
-      // const fetchData = async function(){
-      //   const categiroesObj = await fetch('/categories.json');
-      //   console.log(categiroesObj).json();
-      //   //return categiroesObj.json();
-         
-      // }
-      // fetchData();
-     
-      const fetchData1 = async function() {
-        fetch('/categories.json')
-        .then(res => res.json())
-        .then(res => res.category_list.categories)
-        .then(data => data.forEach(category => {
+      const fetchData = async function(){
+        const categiroesRaw = await fetch('/categories.json');
+        const categoreisJason = await categiroesRaw.json();
+        const categoriesList = await categoreisJason.category_list.categories;
+        categoriesList.forEach(category => category => {
           subMenuItemsArray.push({
             parent: "Discussions",
             subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
@@ -49,10 +41,35 @@ export default {
 
           })
           
-        }))
-        
-        
+        });
+        return categoriesList;
+         
       }
+      console.log(fetchData());
+      // fetchData();
+     
+      // const fetchData1 = async function() {
+      //   fetch('/categories.json')
+      //   .then(res => res.json())
+      //   .then(res => res.category_list.categories)
+      //   .then(data => data.forEach(category => {
+      //     subMenuItemsArray.push({
+      //       parent: "Discussions",
+      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+      //       subLinkText: category.name,
+      //       subAnchorAttributes: {
+      //         title:category.name,
+      //         target: "_self",
+      //         href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+      //         className:"submenu-link",
+      //       }
+
+      //     })
+          
+      //   }))
+        
+        
+      // }
      
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -102,6 +119,7 @@ export default {
 
           subMenuItemsArray.push(subMenuItem);
         })
+        fetchData().forEach(category => subMenuItemsArray.push(category));
 
        
 
@@ -109,7 +127,7 @@ export default {
 
 
 
-      fetchData1().then(splitMenuItems
+     splitMenuItems
         .split("|")
         .filter(Boolean)
         .map((customHeaderLinksArray) => {
@@ -128,7 +146,7 @@ export default {
 
 
           const childrenArray = [];
-          console.log(subMenuItemsArray);
+          //console.log(subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
             console.log(subItem);
             if(subItem.parent === "Discussions"){
@@ -173,7 +191,7 @@ export default {
 
 
           
-        }));
+        });
 
         const htmlArray= [];
         htmlArray.push(
