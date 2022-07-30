@@ -116,10 +116,12 @@ export default {
 
           const childrenArray = [];
           subMenuItemsArray.forEach((subItem) => {
-            if(subItem.parent === "Discussions"){
-              console.log(subItem);
-            }
+            // if(subItem.parent === "Discussions"){
+            //   console.log(subItem);
+            // }
+            console.log(linkText);
             if (subItem.parent === linkText) {
+              
               childrenArray.push(subItem);
             }
           })
