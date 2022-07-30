@@ -85,7 +85,7 @@ export default {
               title:category.name,
               target: "_self",
               href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-              className:category.name.toLowerCase().replace(/\s/gi, "-"),
+              className:"submenu-link",
             }
 
           })
