@@ -19,9 +19,32 @@ export default {
           iconNode
         } = require("discourse-common/lib/icon-library");
 
+     
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
+      const fetchData = async function() {
+        fetch('/categories.json')
+        .then(res => res.json())
+        .then(res => res.category_list.categories)
+        .then(data => data.forEach(category => {
+          subMenuItemsArray.push({
+            parent: "Discussions",
+            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+            subLinkText: category.name,
+            subAnchorAttributes: {
+              title:category.name,
+              target: "_self",
+              href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+              className:"submenu-link",
+            }
+
+          })
+          
+        }))
+        
+        
+      }
       //console.log(splitMenuItems);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -72,27 +95,9 @@ export default {
           subMenuItemsArray.push(subMenuItem);
         })
 
-       fetch('/categories.json')
-        .then(res => res.json())
-        .then(res => res.category_list.categories)
-        .then(data => data.forEach(category => {
-          //console.log(category);
-          subMenuItemsArray.push({
-            parent: "Discussions",
-            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-            subLinkText: category.name,
-            subAnchorAttributes: {
-              title:category.name,
-              target: "_self",
-              href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-              className:"submenu-link",
-            }
+       
 
-          })
-          
-        }))
-
-        console.log(subMenuItemsArray);
+        //console.log(subMenuItemsArray);
 
 
 
@@ -116,18 +121,16 @@ export default {
 
           const childrenArray = [];
           
-          subMenuItemsArray.forEach((subItem) => {
+          fetchData().then(subMenuItemsArray.forEach((subItem) => {
             console.log(subItem);
             if(subItem.parent === "Discussions"){
               console.log(subItem);
             }
-            // //console.log( "this is linkText" + linkText);
-            // console.log ("this is parent" + subItem.parent);
             if (subItem.parent === linkText) {
               
               childrenArray.push(subItem);
             }
-          })
+          }))
 
           const menuItem = {
             linkClass,
