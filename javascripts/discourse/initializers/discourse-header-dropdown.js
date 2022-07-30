@@ -79,7 +79,7 @@ export default {
           //console.log(category);
           subMenuItemsArray.push({
             parent: "Discussions",
-            subLinkClass: category.name.toLowerCase().replace(/\s/gi, "-"),
+            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
             subLinkText: category.name,
             subAnchorAttributes: {
               title:category.name,
