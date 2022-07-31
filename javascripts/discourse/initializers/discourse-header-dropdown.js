@@ -52,7 +52,18 @@ export default {
         return categoriesList;
       }
       pushToSublist().then(categoriesList => {
-        categoriesList.forEach(category => subMenuItemsArray.push(category));
+        categoriesList.forEach(category => subMenuItemsArray.push(
+          {
+            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                  subLinkText: category.name,
+                  subAnchorAttributes: {
+                    title:category.name,
+                    target: "_self",
+                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+                    className:"submenu-link",
+                  }
+          }
+        ));
       })
       
       
