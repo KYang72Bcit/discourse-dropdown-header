@@ -28,6 +28,7 @@ export default {
         const categiroesRaw = await fetch('/categories.json');
         const categoreisJason = await categiroesRaw.json();
         const categoriesList = await categoreisJason.category_list.categories;
+        console.log(categoriesList);
         return categoriesList;
          
       }
