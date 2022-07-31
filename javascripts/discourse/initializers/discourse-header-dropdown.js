@@ -26,32 +26,35 @@ export default {
      
       const splitSubmenuItems = settings.Submenu_items;
 
-      const pushToSublist = async function(){
-        const fetchData = async function(){
-          const categiroesRaw = await fetch('/categories.json');
-          const categoreisJason = await categiroesRaw.json();
-          const categoriesList = await categoreisJason.category_list.categories;
-          return categoriesList;
+      // const pushToSublist = async function(){
+      //   const fetchData = async function(){
+      //     const categiroesRaw = await fetch('/categories.json');
+      //     const categoreisJason = await categiroesRaw.json();
+      //     const categoriesList = await categoreisJason.category_list.categories;
+      //     return categoriesList;
            
-        }
-        const categoriesList = await fetchData();
-        return categoriesList.map(category => { 
-          return{
-            parent: "Discussions",
-            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-                  subLinkText: category.name,
-                  subAnchorAttributes: {
-                    title:category.name,
-                    target: "_self",
-                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-                    className:"submenu-link",
-                  }
-          }
+      //   }
+      //   const categoriesList = await fetchData();
+      //   return categoriesList.map(category => { 
+      //     return{
+      //       parent: "Discussions",
+      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+      //             subLinkText: category.name,
+      //             subAnchorAttributes: {
+      //               title:category.name,
+      //               target: "_self",
+      //               href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+      //               className:"submenu-link",
+      //             }
+      //     }
           
   
-        })
-        // return categoriesList;
-      }
+      //   })
+      //   // return categoriesList;
+      // }
+
+      const categoryLinks = api.api.container.lookup("site:main").categories;
+      console.log("category Links: ", categoryLinks);
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
