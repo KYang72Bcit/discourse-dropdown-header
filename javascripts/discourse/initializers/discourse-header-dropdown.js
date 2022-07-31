@@ -35,7 +35,7 @@ export default {
       const categoriesList = await fetchData();
       categoriesList.forEach(item => console.log(item));
       })
-      console.log(categoriesList);
+      //console.log(categoriesList);
       // console.log(fetchData().then((categries) => {
       //   categries.forEach(category => {
       //     subMenuItemsArray.push({
