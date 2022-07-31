@@ -122,7 +122,7 @@ export default {
 
           subMenuItemsArray.push(subMenuItem);
         })
-        fetchData().forEach(category => subMenuItemsArray.push(category));
+        // fetchData().forEach(category => subMenuItemsArray.push(category));
 
        
 
