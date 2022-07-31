@@ -13,7 +13,7 @@ export default {
   name: "discourse-header-dropdown",
 
   initialize() {
-    withPluginApi("0.8.20", (api) => {
+    withPluginApi("0.8.20", async(api) => {
 
       const {
           iconNode
@@ -32,9 +32,24 @@ export default {
         return categoriesList;
          
       }
-      //const categoriesList = await fetchData();
+      const categoriesList = await fetchData();
+      categoriesList.forEach(category =>{
+        subMenuItemsArray.push({
+                parent: "Discussions",
+                subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                subLinkText: category.name,
+                subAnchorAttributes: {
+                  title:category.name,
+                  target: "_self",
+                  href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+                  className:"submenu-link",
+                }
+    
+              })
+
+      })
       
-      //console.log("categoriesList:" ,categoriesList);
+      console.log("categoriesList:" ,categoriesList);
 
       // console.log(fetchData().then((categries) => {
       //   categries.forEach(category => {
