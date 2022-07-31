@@ -51,7 +51,8 @@ export default {
 
       })
       
-      console.log("categoriesList:" ,categoriesList);
+      console.log("subMenuItemsArray:" ,subMenuItemsArray);
+
 
       // console.log(fetchData().then((categries) => {
       //   categries.forEach(category => {
