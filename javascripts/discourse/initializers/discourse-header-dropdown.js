@@ -61,51 +61,9 @@ export default {
         categoriesList.forEach(category => {
           //console.log("category", category)
           subMenuItemsArray.push(category)});
-      })
-      
-      
-      //console.log("subMenuItemsArray:" ,subMenuItemsArray);
-     
-    
+      }).then(() => {
 
-      splitSubmenuItems
-        .split("|")
-        .filter(Boolean)
-        .map((customSubLinksArray) => {
-          // linkText is the what appear on the menu
-          //linkTitle is what appear when hover
-          const [parent, subLinkText, subLinkHref, subTarget, subLinkTitle] =
-          customSubLinksArray
-            .split(",")
-            .filter(Boolean)
-            .map((x) => x.trim());
-
-          const subLinkTarget = subTarget === "self" ? "_self" : "_blank";
-          const subLinkClass = `.${subLinkText
-            .toLowerCase()
-            .replace(/\s/gi, "-")}`;
-          const subAnchorAttributes = {
-            title: subLinkTitle,
-            href: subLinkHref,
-          };
-          if (subLinkTarget) {
-            subAnchorAttributes.target = subLinkTarget;
-          }
-
-          const subMenuItem = {
-            parent,
-            subLinkClass,
-            subLinkText,
-            subAnchorAttributes
-          };
-
-          subMenuItemsArray.push(subMenuItem);
-        })
-
-
-
-
-     splitMenuItems
+        splitMenuItems
         .split("|")
         .filter(Boolean)
         .map((customHeaderLinksArray) => {
@@ -168,6 +126,56 @@ export default {
           
         });
 
+      }).then(() => {
+
+      api.decorateWidget("home-logo:after", (helper) => {
+        return helper.h("div.menu-items", headerLinks);
+      });
+
+      });
+      
+      
+      //console.log("subMenuItemsArray:" ,subMenuItemsArray);
+     
+    
+
+      splitSubmenuItems
+        .split("|")
+        .filter(Boolean)
+        .map((customSubLinksArray) => {
+          // linkText is the what appear on the menu
+          //linkTitle is what appear when hover
+          const [parent, subLinkText, subLinkHref, subTarget, subLinkTitle] =
+          customSubLinksArray
+            .split(",")
+            .filter(Boolean)
+            .map((x) => x.trim());
+
+          const subLinkTarget = subTarget === "self" ? "_self" : "_blank";
+          const subLinkClass = `.${subLinkText
+            .toLowerCase()
+            .replace(/\s/gi, "-")}`;
+          const subAnchorAttributes = {
+            title: subLinkTitle,
+            href: subLinkHref,
+          };
+          if (subLinkTarget) {
+            subAnchorAttributes.target = subLinkTarget;
+          }
+
+          const subMenuItem = {
+            parent,
+            subLinkClass,
+            subLinkText,
+            subAnchorAttributes
+          };
+
+          subMenuItemsArray.push(subMenuItem);
+        })
+
+
+
+
         const htmlArray= [];
         htmlArray.push(
            
@@ -190,10 +198,6 @@ export default {
       });
       api.decorateWidget("home-logo:after",(helper) => {
         return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
-      });
-
-      api.decorateWidget("home-logo:after", (helper) => {
-        return helper.h("div.menu-items", headerLinks);
       });
 
     
