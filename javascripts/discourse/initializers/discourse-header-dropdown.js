@@ -52,63 +52,12 @@ export default {
       })
       
       console.log("subMenuItemsArray:" ,subMenuItemsArray);
-
-
-      // console.log(fetchData().then((categries) => {
-      //   categries.forEach(category => {
-      //     subMenuItemsArray.push({
-      //       parent: "Discussions",
-      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-      //       subLinkText: category.name,
-      //       subAnchorAttributes: {
-      //         title:category.name,
-      //         target: "_self",
-      //         href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-      //         className:"submenu-link",
-      //       }
-
-      //     })
-          
-      //   });
-
-      // }));
-      // fetchData();
-     
-      // const fetchData1 = async function() {
-      //   fetch('/categories.json')
-      //   .then(res => res.json())
-      //   .then(res => res.category_list.categories)
-      //   .then(data => data.forEach(category => {
-      //     subMenuItemsArray.push({
-      //       parent: "Discussions",
-      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-      //       subLinkText: category.name,
-      //       subAnchorAttributes: {
-      //         title:category.name,
-      //         target: "_self",
-      //         href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-      //         className:"submenu-link",
-      //       }
-
-      //     })
-          
-      //   }))
-        
-        
-      // }
      
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
 
-      // const linksPosition =
-      //   settings.links_position === "right" ?
-      //   "header-buttons:before" :
-      //   "home-logo:after";
-
-     
-    
 
       splitSubmenuItems
         .split("|")
@@ -143,11 +92,7 @@ export default {
 
           subMenuItemsArray.push(subMenuItem);
         })
-        // fetchData().forEach(category => subMenuItemsArray.push(category));
 
-       
-
-        //console.log(subMenuItemsArray);
 
 
 
@@ -173,9 +118,9 @@ export default {
           //console.log(subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
             // console.log(subItem);
-            if(subItem.parent === "Discussions"){
-              console.log(subItem);
-            }
+            // if(subItem.parent === "Discussions"){
+            //   console.log(subItem);
+            // }
             if (subItem.parent === linkText) {
               
               childrenArray.push(subItem);
@@ -211,9 +156,6 @@ export default {
             ), icon]
             )
           )
-
-
-
           
         });
 
