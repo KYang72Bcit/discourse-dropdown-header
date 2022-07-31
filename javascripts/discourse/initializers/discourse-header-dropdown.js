@@ -13,7 +13,7 @@ export default {
   name: "discourse-header-dropdown",
 
   initialize() {
-    withPluginApi("0.8.20", async (api) => {
+    withPluginApi("0.8.20", async(api) => {
 
       const {
           iconNode
@@ -33,10 +33,8 @@ export default {
          
       }
       const categoriesList = await fetchData();
-      console.log('categoriesList:', categoriesList);
-      categoriesList.forEach(item => console.log(item));
-      })
-      //console.log(categoriesList);
+      
+      console.log("categoriesList:" ,categoriesList);
       // console.log(fetchData().then((categries) => {
       //   categries.forEach(category => {
       //     subMenuItemsArray.push({
@@ -128,8 +126,7 @@ export default {
 
           subMenuItemsArray.push(subMenuItem);
         })
-        // const tmp = await fetchData()
-        // tmp.forEach(category => subMenuItemsArray.push(category));
+        // fetchData().forEach(category => subMenuItemsArray.push(category));
 
        
 
