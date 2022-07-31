@@ -197,8 +197,7 @@ export default {
         
         return helper.h("div.menu-items", headerLinks);
       });
-      
-      this.scheduleRerender();
+
 
     
 
