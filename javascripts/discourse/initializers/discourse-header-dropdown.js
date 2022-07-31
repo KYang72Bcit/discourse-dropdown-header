@@ -53,7 +53,7 @@ export default {
       //   // return categoriesList;
       // }
 
-      const categoryLinks = api.api.container.lookup("site:main").categories;
+      const categoryLinks = api.container.lookup("site:main").categories;
       console.log("category Links: ", categoryLinks);
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
