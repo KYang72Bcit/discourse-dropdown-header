@@ -33,8 +33,7 @@ export default {
          
       }
       const categoriesList = await fetchData();
-      categoriesList.forEach((item) =>
-      console.log(item))
+      categoriesList.forEach(item => console.log(item));
       })
       console.log(categoriesList);
       // console.log(fetchData().then((categries) => {
