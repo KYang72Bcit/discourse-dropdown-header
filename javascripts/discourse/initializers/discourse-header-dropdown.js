@@ -54,17 +54,30 @@ export default {
       // }
 
       const categoryLinks = api.container.lookup("site:main").categories;
-      console.log("category Links: ", categoryLinks);
+      //console.log("category Links: ", categoryLinks);
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
+      categoryLinks.forEach(category => subMenuItemsArray.push(
+        {
+          parent: "Discussions",
+            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                  subLinkText: category.name,
+                  subAnchorAttributes: {
+                    title:category.name,
+                    target: "_self",
+                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+                    className:"submenu-link",
+                  }
+        }
+      ))
 
-      pushToSublist().then(categoriesList => {
-        categoriesList.forEach(category => {
-          //console.log("category", category)
-          subMenuItemsArray.push(category)});
-      })
+      // pushToSublist().then(categoriesList => {
+      //   categoriesList.forEach(category => {
+      //     //console.log("category", category)
+      //     subMenuItemsArray.push(category)});
+      // })
       
       
       //console.log("subMenuItemsArray:" ,subMenuItemsArray);
