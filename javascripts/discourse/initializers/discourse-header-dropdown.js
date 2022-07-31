@@ -68,7 +68,7 @@ export default {
       })
       
       
-      console.log("subMenuItemsArray:" ,subMenuItemsArray);
+      //console.log("subMenuItemsArray:" ,subMenuItemsArray);
      
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -135,9 +135,9 @@ export default {
           //console.log(subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
             // console.log(subItem);
-            // if(subItem.parent === "Discussions"){
-            //   console.log(subItem);
-            // }
+            if(subItem.parent === "Discussions"){
+              console.log(subItem);
+            }
             if (subItem.parent === linkText) {
               
               childrenArray.push(subItem);
