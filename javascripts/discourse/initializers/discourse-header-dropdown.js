@@ -32,7 +32,10 @@ export default {
         return categoriesList;
          
       }
-      console.log(fetchData());
+      const categoriesList = fetchData().then( category => {
+        category;
+      })
+      console.log(categoriesList);
       // console.log(fetchData().then((categries) => {
       //   categries.forEach(category => {
       //     subMenuItemsArray.push({
