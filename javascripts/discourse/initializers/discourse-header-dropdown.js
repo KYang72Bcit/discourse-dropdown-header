@@ -54,7 +54,8 @@ export default {
       pushToSublist().then(categoriesList => {
         categoriesList.forEach(category => subMenuItemsArray.push(
           {
-            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                  parent: "Discussions",
+                  subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
                   subLinkText: category.name,
                   subAnchorAttributes: {
                     title:category.name,
