@@ -32,24 +32,25 @@ export default {
         return categoriesList;
          
       }
-      console.log(fetchData().then((categries) => {
-        categries.forEach(category => {
-          subMenuItemsArray.push({
-            parent: "Discussions",
-            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-            subLinkText: category.name,
-            subAnchorAttributes: {
-              title:category.name,
-              target: "_self",
-              href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-              className:"submenu-link",
-            }
+      console.log(fetchData());
+      // console.log(fetchData().then((categries) => {
+      //   categries.forEach(category => {
+      //     subMenuItemsArray.push({
+      //       parent: "Discussions",
+      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+      //       subLinkText: category.name,
+      //       subAnchorAttributes: {
+      //         title:category.name,
+      //         target: "_self",
+      //         href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+      //         className:"submenu-link",
+      //       }
 
-          })
+      //     })
           
-        });
+      //   });
 
-      }));
+      // }));
       // fetchData();
      
       // const fetchData1 = async function() {
