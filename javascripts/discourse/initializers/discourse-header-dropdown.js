@@ -19,7 +19,9 @@ export default {
           iconNode
         } = require("discourse-common/lib/icon-library");
 
-     
+        const subMenuItemsArray = [];
+        const headerLinks = [];
+      
       const splitMenuItems = settings.Menu_items;
      
       const splitSubmenuItems = settings.Submenu_items;
@@ -105,8 +107,6 @@ export default {
       //   "home-logo:after";
 
      
-      const subMenuItemsArray = [];
-      const headerLinks = [];
     
 
       splitSubmenuItems
