@@ -45,13 +45,11 @@ const pushToSublist = async function(){
     
 
   })
-  // return categoriesList;
 }
-pushToSublist().then(categoriesList => {
-  categoriesList.forEach(category => {
-    console.log("category", category)
-    subMenuItemsArray.push(category)});
-})
+const categoryList = await pushToSublist();
+categoryList.forEach(category => {
+  console.log("category", category);
+  subMenuItemsArray.push(category)});
 
 
 //console.log("subMenuItemsArray:" ,subMenuItemsArray);
