@@ -143,10 +143,8 @@ export default {
           //console.log("subItemsArray",subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
              //console.log(subItem);
-            if(subItem.parent === "Discussions"){
-              console.log(subItem);
-            }
-            if (subItem.parent === linkText) {
+            
+            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized") {
               
               childrenArray.push(subItem);
             }
