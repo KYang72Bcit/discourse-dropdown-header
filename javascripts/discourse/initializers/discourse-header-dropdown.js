@@ -35,8 +35,9 @@ export default {
            
         }
         const categoriesList = await fetchData();
-        categoriesList.forEach(category => { 
+        return categoriesList.map(category => { 
           return{
+            parent: "Discussions",
             subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
                   subLinkText: category.name,
                   subAnchorAttributes: {
@@ -49,22 +50,12 @@ export default {
           
   
         })
-        return categoriesList;
+        // return categoriesList;
       }
       pushToSublist().then(categoriesList => {
-        categoriesList.forEach(category => subMenuItemsArray.push(
-          {
-                  parent: "Discussions",
-                  subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-                  subLinkText: category.name,
-                  subAnchorAttributes: {
-                    title:category.name,
-                    target: "_self",
-                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-                    className:"submenu-link",
-                  }
-          }
-        ));
+        categoriesList.forEach(category => {
+          console.log("category", category)
+          subMenuItemsArray.push(category)});
       })
       
       
@@ -132,9 +123,9 @@ export default {
 
 
           const childrenArray = [];
-          console.log("subItemsArray", subMenuItemsArray);
+          //console.log("subItemsArray",subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
-             console.log(subItem);
+             //console.log(subItem);
             if(subItem.parent === "Discussions"){
               console.log(subItem);
             }
