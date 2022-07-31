@@ -132,7 +132,7 @@ export default {
 
 
           const childrenArray = [];
-          //console.log(subMenuItemsArray);
+          console.log("subItemsArray", subMenuItemsArray);
           subMenuItemsArray.forEach((subItem) => {
              console.log(subItem);
             if(subItem.parent === "Discussions"){
