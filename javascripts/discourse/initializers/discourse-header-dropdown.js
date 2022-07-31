@@ -67,7 +67,7 @@ export default {
                   subAnchorAttributes: {
                     title:category.name,
                     target: "_self",
-                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+                    href: `/c/${category.slug}/${category.id}`,
                     className:"submenu-link",
                   }
         }
