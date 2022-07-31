@@ -13,7 +13,7 @@ export default {
   name: "discourse-header-dropdown",
 
   initialize() {
-    withPluginApi("0.8.20", async(api) => {
+    withPluginApi("0.8.20", (api) => {
 
       const {
           iconNode
@@ -26,30 +26,35 @@ export default {
      
       const splitSubmenuItems = settings.Submenu_items;
 
-      const fetchData = async function(){
-        const categiroesRaw = await fetch('/categories.json');
-        const categoreisJason = await categiroesRaw.json();
-        const categoriesList = await categoreisJason.category_list.categories;
-        console.log(categoriesList);
+      const pushToSublist = async function(){
+        const fetchData = async function(){
+          const categiroesRaw = await fetch('/categories.json');
+          const categoreisJason = await categiroesRaw.json();
+          const categoriesList = await categoreisJason.category_list.categories;
+          return categoriesList;
+           
+        }
+        const categoriesList = await fetchData();
+        categoriesList.forEach(category => { 
+          return{
+            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                  subLinkText: category.name,
+                  subAnchorAttributes: {
+                    title:category.name,
+                    target: "_self",
+                    href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
+                    className:"submenu-link",
+                  }
+          }
+          
+  
+        })
         return categoriesList;
-         
       }
-      const categoriesList = await fetchData();
-      categoriesList.forEach(category =>{
-        subMenuItemsArray.push({
-                parent: "Discussions",
-                subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-                subLinkText: category.name,
-                subAnchorAttributes: {
-                  title:category.name,
-                  target: "_self",
-                  href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-                  className:"submenu-link",
-                }
-    
-              })
-
+      pushToSublist().then(categoriesList => {
+        categoriesList.forEach(category => subMenuItemsArray.push(category));
       })
+      
       
       console.log("subMenuItemsArray:" ,subMenuItemsArray);
      
