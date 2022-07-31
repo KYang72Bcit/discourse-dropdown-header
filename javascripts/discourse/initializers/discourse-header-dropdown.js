@@ -49,7 +49,7 @@ const pushToSublist = async function(){
 }
 pushToSublist().then(categoriesList => {
   categoriesList.forEach(category => {
-    //console.log("category", category)
+    console.log("category", category)
     subMenuItemsArray.push(category)});
 })
 
