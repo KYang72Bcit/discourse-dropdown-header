@@ -26,35 +26,11 @@ export default {
      
       const splitSubmenuItems = settings.Submenu_items;
 
-      // const pushToSublist = async function(){
-      //   const fetchData = async function(){
-      //     const categiroesRaw = await fetch('/categories.json');
-      //     const categoreisJason = await categiroesRaw.json();
-      //     const categoriesList = await categoreisJason.category_list.categories;
-      //     return categoriesList;
-           
-      //   }
-      //   const categoriesList = await fetchData();
-      //   return categoriesList.map(category => { 
-      //     return{
-      //       parent: "Discussions",
-      //       subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-      //             subLinkText: category.name,
-      //             subAnchorAttributes: {
-      //               title:category.name,
-      //               target: "_self",
-      //               href: `${window.location.hostname}/c/${category.slug}/${category.id}`,
-      //               className:"submenu-link",
-      //             }
-      //     }
-          
-  
-      //   })
-      //   // return categoriesList;
-      // }
+      
 
       const categoryLinks = api.container.lookup("site:main").categories;
-      //console.log("category Links: ", categoryLinks);
+      console.log('categoryLinks', categoryLinks)
+     
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
@@ -73,14 +49,7 @@ export default {
         }
       ))
 
-      // pushToSublist().then(categoriesList => {
-      //   categoriesList.forEach(category => {
-      //     //console.log("category", category)
-      //     subMenuItemsArray.push(category)});
-      // })
       
-      
-      //console.log("subMenuItemsArray:" ,subMenuItemsArray);
      
     
 
@@ -140,9 +109,9 @@ export default {
 
 
           const childrenArray = [];
-          //console.log("subItemsArray",subMenuItemsArray);
+         
           subMenuItemsArray.forEach((subItem) => {
-             //console.log(subItem);
+             
             
             if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized") {
               
