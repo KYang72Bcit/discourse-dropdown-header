@@ -29,20 +29,18 @@ export default {
       
 
       const categoryLinks = api.container.lookup("site:main").categories;
+      categoryLinks.forEach(category =>{
+        console.log("categy is muted:", category.isMuted);
+        console.log("categy has muted:", category.Muted);
+      })
 
-      //test on if can get muted
-      // console.log('categoryLinks', categoryLinks);
-      // categoryLinks.forEach(category =>
-      //   console.log(category.hasMuted));
 
-     
-
+    
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
       categoryLinks.forEach(category => {
         if(!category.hasMuted){
-          console.log("category name:", category.name);
           subMenuItemsArray.push(
           {
             parent: "Discussions",
