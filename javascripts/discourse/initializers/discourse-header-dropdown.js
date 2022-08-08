@@ -33,7 +33,7 @@ export default {
       //test on if can get muted
       console.log('categoryLinks', categoryLinks);
       categoryLinks.forEach(category =>
-        console.log(category.isisMuted));
+        console.log(category.hasMuted));
 
      
 
