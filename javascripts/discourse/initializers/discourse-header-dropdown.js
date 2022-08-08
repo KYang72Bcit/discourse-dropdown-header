@@ -42,6 +42,7 @@ export default {
       }
       categoryLinks.forEach(category => {
         if(!category.hasMuted){
+          console.log("category name:", category.name);
           subMenuItemsArray.push(
           {
             parent: "Discussions",
