@@ -31,28 +31,30 @@ export default {
       const categoryLinks = api.container.lookup("site:main").categories;
 
       //test on if can get muted
-      console.log('categoryLinks', categoryLinks);
-      categoryLinks.forEach(category =>
-        console.log(category.hasMuted));
+      // console.log('categoryLinks', categoryLinks);
+      // categoryLinks.forEach(category =>
+      //   console.log(category.hasMuted));
 
      
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
-      categoryLinks.forEach(category => subMenuItemsArray.push(
-        {
-          parent: "Discussions",
-            subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-                  subLinkText: category.name,
-                  subAnchorAttributes: {
-                    title:category.name,
-                    target: "_self",
-                    href: `/c/${category.slug}/${category.id}`,
-                    className:"submenu-link",
-                  }
-        }
-      ))
+      categoryLinks.forEach(category => {
+        if(!category.hasMuted){
+          subMenuItemsArray.push(
+          {
+            parent: "Discussions",
+              subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                    subLinkText: category.name,
+                    subAnchorAttributes: {
+                      title:category.name,
+                      target: "_self",
+                      href: `/c/${category.slug}/${category.id}`,
+                      className:"submenu-link",
+                    }
+          }
+      )}})
 
       
      
