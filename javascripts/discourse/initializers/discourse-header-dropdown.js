@@ -29,7 +29,12 @@ export default {
       
 
       const categoryLinks = api.container.lookup("site:main").categories;
-      console.log('categoryLinks', categoryLinks)
+
+      //test on if can get muted
+      console.log('categoryLinks', categoryLinks);
+      categoryLinks.forEach(category =>
+        console.log(category.isisMuted));
+
      
 
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
