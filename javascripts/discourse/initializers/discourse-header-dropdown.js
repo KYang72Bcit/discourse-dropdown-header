@@ -31,7 +31,7 @@ export default {
       const categoryLinks = api.container.lookup("site:main").categories;
       categoryLinks.forEach(category =>{
         console.log("categy is muted:", category.isMuted);
-        console.log("categy has muted:", category.Muted);
+        console.log("categy has muted:", category.hasMuted);
       })
 
 
