@@ -28,12 +28,7 @@ export default {
 
       
 
-      const categoryLinks = api.container.lookup("site:main").categories;
-      // categoryLinks.forEach(category =>{
-      //   console.log("categy is muted:", category.isMuted);
-      //   console.log("categy has muted:", category.hasMuted);
-      // })
-
+      const categoryLinks = api.container.lookup("service:site").categories;
 
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -63,8 +58,6 @@ export default {
         .split("|")
         .filter(Boolean)
         .map((customSubLinksArray) => {
-          // linkText is the what appear on the menu
-          //linkTitle is what appear when hover
           const [parent, subLinkText, subLinkHref, subTarget, subLinkTitle] =
           customSubLinksArray
             .split(",")
