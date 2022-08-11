@@ -78,7 +78,8 @@ export default {
       // })
       categoryLinks.forEach(category => {
         if(!category.hasMuted || (currentUser && currentUser.admin)){
-          const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
+          const parentUrl = category.parentCategory? `${category.parentCategory.slug}/`:'';
+          console.log("fullURL",  `/c/${parentUrl}${category.slug}/${category.id}`);
           subMenuItemsArray.push(
           {
             parent: "Discussions",
