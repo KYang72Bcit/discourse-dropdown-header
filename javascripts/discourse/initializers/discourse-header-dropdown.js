@@ -39,6 +39,7 @@ export default {
       }
       categoryLinks.forEach(category => {
         if(!category.hasMuted){
+          const parentUrl = category.parentCategory? `${category.parentCategory.slug}`:'';
           subMenuItemsArray.push(
           {
             parent: "Discussions",
@@ -47,7 +48,7 @@ export default {
                     subAnchorAttributes: {
                       title:category.name,
                       target: "_self",
-                      href: `/c/${category.slug}/${category.id}`,
+                      href: `/c/${parentUrl}/${category.slug}/${category.id}`,
                       className:"submenu-link",
                     }
           }
