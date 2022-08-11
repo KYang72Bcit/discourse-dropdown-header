@@ -39,7 +39,7 @@ export default {
         return;
       }
       categoryLinks.forEach(category => {
-        if(!category.hasMuted || currentUser.admin){
+        if(!category.hasMuted || (currentUser && currentUser.admin)){
           const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
           subMenuItemsArray.push(
           {
@@ -120,7 +120,7 @@ export default {
             // if ((subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" 
             // && subItem.subAnchorAttributes.title !== `${muteCategory}`))
             if(subItem.parent === linkText) {
-              if(currentUser.admin ||(subItem.subAnchorAttributes.title !== "Uncategorized" 
+              if((currentUser && currentUser.admin) ||(subItem.subAnchorAttributes.title !== "Uncategorized" 
               && subItem.subAnchorAttributes.title !== `${muteCategory}`))
               
               childrenArray.push(subItem);
