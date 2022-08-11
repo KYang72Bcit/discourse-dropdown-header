@@ -26,6 +26,8 @@ export default {
      
       const splitSubmenuItems = settings.Submenu_items;
 
+      const muted_category = settings.muted_category;
+
       
 
       const categoryLinks = api.container.lookup("service:site").categories;
@@ -113,7 +115,7 @@ export default {
           subMenuItemsArray.forEach((subItem) => {
              
             
-            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" && subItem.subAnchorAttributes.title !== `${settings.muted_category}`) {
+            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" && subItem.subAnchorAttributes.title !== `${muted_category}`) {
               
               childrenArray.push(subItem);
             }
