@@ -121,9 +121,11 @@ export default {
             // && subItem.subAnchorAttributes.title !== `${muteCategory}`))
             if(subItem.parent === linkText) {
               if((currentUser && currentUser.admin) ||(subItem.subAnchorAttributes.title !== "Uncategorized" 
-              && subItem.subAnchorAttributes.title !== `${muteCategory}`))
+              && subItem.subAnchorAttributes.title !== `${muteCategory}`)){
+                childrenArray.push(subItem);
+              }
               
-              childrenArray.push(subItem);
+             
             }
           })
 
