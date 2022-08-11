@@ -38,22 +38,60 @@ export default {
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
+
       categoryLinks.forEach(category => {
-        if(!category.hasMuted || (currentUser && currentUser.admin)){
-          const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
-          subMenuItemsArray.push(
-          {
-            parent: "Discussions",
-              subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-                    subLinkText: category.name,
-                    subAnchorAttributes: {
-                      title:category.name,
-                      target: "_self",
-                      href: `/c/${parentUrl}${category.slug}/${category.id}`,
-                      className:"submenu-link",
-                    }
+        const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
+        if (category.hasMuted){
+          if(currentUser){
+            if(currentUser.admin){
+              subMenuItemsArray.push(
+                {
+                  parent: "Discussions",
+                    subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                          subLinkText: category.name,
+                          subAnchorAttributes: {
+                            title:category.name,
+                            target: "_self",
+                            href: `/c/${parentUrl}${category.slug}/${category.id}`,
+                            className:"submenu-link",
+                          }
+                })
+            }
           }
-      )}})
+        }
+        else{
+          subMenuItemsArray.push(
+            {
+              parent: "Discussions",
+                subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                      subLinkText: category.name,
+                      subAnchorAttributes: {
+                        title:category.name,
+                        target: "_self",
+                        href: `/c/${parentUrl}${category.slug}/${category.id}`,
+                        className:"submenu-link",
+                      }
+            })
+          
+          
+        }
+      })
+      // categoryLinks.forEach(category => {
+      //   if(!category.hasMuted || (currentUser && currentUser.admin)){
+      //     const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
+      //     subMenuItemsArray.push(
+      //     {
+      //       parent: "Discussions",
+      //         subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+      //               subLinkText: category.name,
+      //               subAnchorAttributes: {
+      //                 title:category.name,
+      //                 target: "_self",
+      //                 href: `/c/${parentUrl}${category.slug}/${category.id}`,
+      //                 className:"submenu-link",
+      //               }
+      //     }
+      // )}})
 
       
      
