@@ -32,7 +32,7 @@ export default {
       
 
       const categoryLinks = api.container.lookup("service:site").categories;
-
+      console.log("categoryLinks", categoryLinks);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
