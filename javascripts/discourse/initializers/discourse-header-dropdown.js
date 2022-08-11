@@ -29,6 +29,7 @@ export default {
       
 
       const categoryLinks = api.container.lookup("service:site").categories;
+      
 
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
@@ -112,7 +113,7 @@ export default {
           subMenuItemsArray.forEach((subItem) => {
              
             
-            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized") {
+            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" && subItem.subAnchorAttributes.title !== `${settings.muted_category}`) {
               
               childrenArray.push(subItem);
             }
