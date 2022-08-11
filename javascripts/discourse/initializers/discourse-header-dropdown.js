@@ -117,8 +117,11 @@ export default {
           subMenuItemsArray.forEach((subItem) => {
              
             
-            if ((currentUser.admin) ||(subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" 
-            && subItem.subAnchorAttributes.title !== `${muteCategory}`)) {
+            // if ((subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" 
+            // && subItem.subAnchorAttributes.title !== `${muteCategory}`))
+            if(subItem.parent === linkText) {
+              if(currentUser.admin ||(subItem.subAnchorAttributes.title !== "Uncategorized" 
+              && subItem.subAnchorAttributes.title !== `${muteCategory}`))
               
               childrenArray.push(subItem);
             }
