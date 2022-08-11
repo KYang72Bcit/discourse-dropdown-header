@@ -198,23 +198,7 @@ export default {
         }
       });
 
-      // if (settings.links_position === "left") {
-      //   // if links are aligned left, we need to be able to open in a new tab
-      //   api.reopenWidget("home-logo", {
-      //     click(e) {
-      //       if (e.target.id === "site-logo") {
-      //         if (wantsNewWindow(e)) {
-      //           return false;
-      //         }
-      //         e.preventDefault();
-
-      //         DiscourseURL.routeToTag($(e.target).closest("a")[0]);
-
-      //         return false;
-      //       }
-      //     },
-      //   });
-      // }
+    
 
       api.onPageChange(() => {
         const burgerMenuIcon = document.querySelector('.nav__toggle-label');
