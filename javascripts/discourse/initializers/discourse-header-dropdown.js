@@ -28,7 +28,16 @@ export default {
 
       
 
+<<<<<<< HEAD
       const categoryLinks = api.container.lookup("service:site").categories;
+=======
+      const categoryLinks = api.container.lookup("site:main").categories;
+      categoryLinks.forEach(category =>{
+        console.log("categy is muted:", category.isMuted);
+        console.log("categy has muted:", category.hasMuted);
+      })
+
+>>>>>>> parent of 9a98cb6 (clean up for code)
 
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
