@@ -112,7 +112,7 @@ export default {
           subMenuItemsArray.forEach((subItem) => {
              
             
-            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized") {
+            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" && subItem.subAnchorAttributes.title !== "Static") {
               
               childrenArray.push(subItem);
             }
