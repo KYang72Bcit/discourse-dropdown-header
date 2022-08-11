@@ -32,13 +32,14 @@ export default {
       
 
       const categoryLinks = api.container.lookup("service:site").categories;
+      const currentUser = api.container.lookup("current-user:main");
       console.log("categoryLinks", categoryLinks);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
       }
       categoryLinks.forEach(category => {
-        if(!category.hasMuted){
+        if(!category.hasMuted || currentUser.admin){
           const parentUrl = category.parentCategory? `${category.parentCategory.slug}`:'';
           subMenuItemsArray.push(
           {
@@ -116,7 +117,8 @@ export default {
           subMenuItemsArray.forEach((subItem) => {
              
             
-            if (subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" && subItem.subAnchorAttributes.title !== `${muteCategory}`) {
+            if ((currentUser.admin) ||(subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" 
+            && subItem.subAnchorAttributes.title !== `${muteCategory}`)) {
               
               childrenArray.push(subItem);
             }
