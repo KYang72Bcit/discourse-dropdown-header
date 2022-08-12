@@ -116,7 +116,7 @@ export default {
             subLinkClass,
             subLinkText,
             subAnchorAttributes,
-            subCategories: subCategoriesArray
+            subCategories: []
           };
 
           subMenuItemsArray.push(subMenuItem);
