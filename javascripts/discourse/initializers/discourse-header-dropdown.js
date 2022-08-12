@@ -48,6 +48,7 @@ export default {
               parent:category.parentCategory.name,
               subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
                     subLinkText: category.name,
+                    subCategories:[],
                     subAnchorAttributes: {
                       title:category.name,
                       target: "_self",
@@ -61,6 +62,7 @@ export default {
                 parent: "Discussions",
                   subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
                         subLinkText: category.name,
+                        subCategories:[],
                         subAnchorAttributes: {
                           title:category.name,
                           target: "_self",
@@ -72,6 +74,13 @@ export default {
             }
          }})
 
+         subMenuItemsArray.forEach((item) => {
+          for (let i = 0; i < subCategories.length; i++) {
+            if(subCategories[i].parent === item.subLinkText){
+              item.subCategories.push(subCategories[i]);
+            }
+          }
+         })
          console.log("subMebueItemArray, ", subMenuItemsArray);
          console.log("subCategories", subCategories);
 
@@ -100,20 +109,6 @@ export default {
           if (subLinkTarget) {
             subAnchorAttributes.target = subLinkTarget;
           }
-          const subCategoriesArray = [];
-          subCategories.forEach((category) => {
-            // console.log("category.parent", category.parent);
-            // console.log("subLinkText", subLinkText);
-             
-      
-            if(category.parent === subLinkText) {
-              if((currentUser && currentUser.admin) ||(category.subAnchorAttributes.title !== "Uncategorized" 
-              && category.subAnchorAttributes.title !== `${muteCategory}`)){
-                subCategoriesArray.push(category);
-              } 
-             
-            }
-          })
           
 
           const subMenuItem = {
