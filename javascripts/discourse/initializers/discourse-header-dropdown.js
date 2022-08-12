@@ -186,14 +186,13 @@ export default {
                     }
                     
                     else {
-                      //console.log("for-member's ", child.subCategories);
-                      //testing
-                      
+                      const hasSubCategories = 'hasSubCategories';
+
                       return h(`li.submenu-item${child.subLinkClass}`, 
-                      h("a.submenu-link", child.subAnchorAttributes,[
-                        child.subLinkText,icon, h('div.d-header-dropdown', 
+                      h(`a.submenu-link${hasSubCategories}`, child.subAnchorAttributes,[
+                        child.subLinkText,icon, h('div.d-category-dropdown', 
                         h(`ul.d-dropdown-submenu`,
-                        h(`a.menu-item${child.subAnchorAttributes.className} `,
+                        h(`a.menu-item${child.subAnchorAttributes.className}`,
                         child.subCategories.map( (category) => {
                           return h(`li.submenu-item${category.subLinkClass}`,
                         h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
