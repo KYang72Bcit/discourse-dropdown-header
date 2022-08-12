@@ -191,12 +191,11 @@ export default {
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
-                        h(`ul.d-dropdown-submenu`,
-                        h(`a.menu-item ${child.subAnchorAttributes.className}`,
-                        child.subCategories.map( (category) => {
+                        h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
                           return h(`li.submenu-item${category.subLinkClass}`,
                         h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
-                        }))
+                        })
+                        
                         ))
                       ]),
                       )
