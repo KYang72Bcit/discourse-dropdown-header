@@ -288,7 +288,7 @@ export default {
           }
         })
 
-        window.addEventListener("scroll", (e) => {
+        document.addEventListener("scroll", (e) => {
           if (menuItems.classList.contains("menu-items-open")) {
           menuItems.classList.remove("menu-items-open");
             styleEle.innerHTML = "";
