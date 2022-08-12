@@ -283,6 +283,14 @@ export default {
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
           }
         })
+
+        window.addEventListener("scroll", (e) => {
+          if (menuItems.classList.contains("menu-items-open")) {
+          menuItems.classList.remove("menu-items-open");
+            styleEle.innerHTML = "";
+            burgerMenuIcon.classList.remove("nav__toggle-label--active");
+          }
+        })
       })
 
     });
