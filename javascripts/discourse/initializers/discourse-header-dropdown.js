@@ -21,6 +21,7 @@ export default {
 
         const subMenuItemsArray = [];
         const headerLinks = [];
+        const subCategories = [];
       
       const splitMenuItems = settings.Menu_items;
      
@@ -39,60 +40,37 @@ export default {
         return;
       }
 
-      // categoryLinks.forEach(category => {
-      //   const parentUrl = category.parentCategory? `/${category.parentCategory.slug}`:'';
-      //   if (category.hasMuted){
-      //     if(currentUser){
-      //       if(currentUser.admin){
-      //         subMenuItemsArray.push(
-      //           {
-      //             parent: "Discussions",
-      //               subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-      //                     subLinkText: category.name,
-      //                     subAnchorAttributes: {
-      //                       title:category.name,
-      //                       target: "_self",
-      //                       href: `/c/${parentUrl}${category.slug}/${category.id}`,
-      //                       className:"submenu-link",
-      //                     }
-      //           })
-      //       }
-      //     }
-      //   }
-      //   else{
-      //     subMenuItemsArray.push(
-      //       {
-      //         parent: "Discussions",
-      //           subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
-      //                 subLinkText: category.name,
-      //                 subAnchorAttributes: {
-      //                   title:category.name,
-      //                   target: "_self",
-      //                   href: `/c/${parentUrl}${category.slug}/${category.id}`,
-      //                   className:"submenu-link",
-      //                 }
-      //       })
-          
-          
-      //   }
-      // })
       categoryLinks.forEach(category => {
         if(!category.hasMuted || (currentUser && currentUser.admin)){
-          const parentUrl = category.parentCategory? `${category.parentCategory.slug}/`:'';
-          console.log("fullURL",  `/c/${parentUrl}${category.slug}/${category.id}`);
-          subMenuItemsArray.push(
-          {
-            parent: "Discussions",
+          if(category.parentCategory){
+            const parentUrl = `${category.parentCategory.slug}/`;
+            subCategories.push({
+              parent:category.parentCategory.name,
               subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
                     subLinkText: category.name,
                     subAnchorAttributes: {
                       title:category.name,
                       target: "_self",
                       href: `/c/${parentUrl}${category.slug}/${category.id}`,
-                      className:"submenu-link",
-                    }
-          }
-      )}})
+                      className:"submenu-link"}
+
+            })
+          } else {
+            subMenuItemsArray.push(
+              {
+                parent: "Discussions",
+                  subLinkClass: `.${category.name.toLowerCase().replace(/\s/gi, "-")}`,
+                        subLinkText: category.name,
+                        subAnchorAttributes: {
+                          title:category.name,
+                          target: "_self",
+                          href: `/c/${parentUrl}${category.slug}/${category.id}`,
+                          className:"submenu-link"}
+              }
+          )
+
+            }
+         }})
 
       
      
@@ -119,12 +97,26 @@ export default {
           if (subLinkTarget) {
             subAnchorAttributes.target = subLinkTarget;
           }
+          const subCategoriesArray = [];
+          subCategories.forEach((category) => {
+             
+      
+            if(category.parent === subLinkText) {
+              if((currentUser && currentUser.admin) ||(category.subAnchorAttributes.title !== "Uncategorized" 
+              && category.subAnchorAttributes.title !== `${muteCategory}`)){
+                subCategoriesArray.push(category);
+              } 
+             
+            }
+          })
+          
 
           const subMenuItem = {
             parent,
             subLinkClass,
             subLinkText,
-            subAnchorAttributes
+            subAnchorAttributes,
+            subCategories: subCategoriesArray
           };
 
           subMenuItemsArray.push(subMenuItem);
@@ -155,9 +147,7 @@ export default {
          
           subMenuItemsArray.forEach((subItem) => {
              
-            
-            // if ((subItem.parent === linkText && subItem.subAnchorAttributes.title !== "Uncategorized" 
-            // && subItem.subAnchorAttributes.title !== `${muteCategory}`))
+      
             if(subItem.parent === linkText) {
               if((currentUser && currentUser.admin) ||(subItem.subAnchorAttributes.title !== "Uncategorized" 
               && subItem.subAnchorAttributes.title !== `${muteCategory}`)){
