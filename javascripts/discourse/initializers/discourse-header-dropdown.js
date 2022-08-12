@@ -189,7 +189,7 @@ export default {
                       const hasSubCategories = 'hasSubCategories';
 
                       return h(`li.submenu-item${child.subLinkClass}`, 
-                      h(`a.submenu-link${hasSubCategories}`, child.subAnchorAttributes,[
+                      h(`a.submenu-link ${hasSubCategories}`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-category-dropdown', 
                         h(`ul.d-dropdown-submenu`,
                         h(`a.menu-item${child.subAnchorAttributes.className}`,
