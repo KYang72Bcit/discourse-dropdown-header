@@ -53,7 +53,7 @@ export default {
                       title:category.name,
                       target: "_self",
                       href: `/c/${parentUrl}${category.slug}/${category.id}`,
-                      className:"submenu-link"}
+                      className:category.slug}
 
             })
           } else {
@@ -67,7 +67,7 @@ export default {
                           title:category.name,
                           target: "_self",
                           href: `/c/${category.slug}/${category.id}`,
-                          className:"submenu-link"}
+                          className: category.slug}
               }
           )
 
@@ -186,10 +186,10 @@ export default {
                     }
                     
                     else {
-                      const hasSubCategories = 'hasSubCategories';
+                      //const hasSubCategories = 'hasSubCategories';
 
                       return h(`li.submenu-item${child.subLinkClass}`, 
-                      h(`a.submenu-link ${hasSubCategories}`, child.subAnchorAttributes,[
+                      h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-category-dropdown', 
                         h(`ul.d-dropdown-submenu`,
                         h(`a.menu-item${child.subAnchorAttributes.className}`,
