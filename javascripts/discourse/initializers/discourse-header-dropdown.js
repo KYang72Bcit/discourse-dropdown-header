@@ -181,7 +181,7 @@ export default {
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
                     if((!child.subCategories) || (child.subCategories && child.subCategories.length === 0)){
-                      return h(`li.submenu-item${child.subLinkClass}`,
+                      return h(`li.submenu-item${child.subLinkClass} haschildren`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
                     
