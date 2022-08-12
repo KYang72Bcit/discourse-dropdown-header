@@ -187,7 +187,7 @@ export default {
                     
                     else {
                       //console.log("for-member's ", child.subCategories);
-                      return h('div.menu-item-wrapper,', {tabIndex:"0"}, h(`li.submenu-item${child.subLinkClass}`, 
+                      return h(`li.submenu-item${child.subLinkClass}`, 
                       h("a.submenu-link", child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
                         h(`ul.d-dropdown-submenu`,
@@ -198,7 +198,7 @@ export default {
                         }))
                         ))
                       ]),
-                      ) )
+                      )
 
                     }
                   
