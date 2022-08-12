@@ -180,7 +180,7 @@ export default {
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
-                    if(child.childrenArray.length === 0){
+                    if((!child.childrenArray) || (child.childrenArray && child.childrenArray.length === 0)){
                       return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
