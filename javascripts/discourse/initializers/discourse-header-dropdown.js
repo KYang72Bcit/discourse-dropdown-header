@@ -225,9 +225,9 @@ export default {
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
-      api.decorateWidget("home-logo:after",(helper) => {
-        return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
-      });
+      // api.decorateWidget("home-logo:after",(helper) => {
+      //   return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
+      // });
 
       api.decorateWidget("home-logo:after", (helper) => {
        
@@ -272,6 +272,14 @@ export default {
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
             menuItems.classList.remove("menu-items-open");
             isOpen = false;
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.screen.width >= 851 && menuItems.classList.contains("menu-items-open")) {
+            menuItems.classList.remove("menu-items-open");
+            styleEle.innerHTML = "";
+            burgerMenuIcon.classList.remove("nav__toggle-label--active");
           }
         })
       })
