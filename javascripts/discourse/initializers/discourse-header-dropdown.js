@@ -34,7 +34,7 @@ export default {
 
       const categoryLinks = api.container.lookup("service:site").categories;
       const currentUser = api.container.lookup("current-user:main");
-      console.log("categoryLinks", categoryLinks);
+      //console.log("categoryLinks", categoryLinks);
     
       if (!splitMenuItems.length || !splitSubmenuItems.length) {
         return;
@@ -72,6 +72,8 @@ export default {
             }
          }})
 
+         console.log("subMebueItemArray, ", subMenuItemsArray);
+
       
      
     
@@ -99,8 +101,8 @@ export default {
           }
           const subCategoriesArray = [];
           subCategories.forEach((category) => {
-            console.log("category.parent", category.parent);
-            console.log("subLinkText", subLinkText);
+            // console.log("category.parent", category.parent);
+            // console.log("subLinkText", subLinkText);
              
       
             if(category.parent === subLinkText) {
