@@ -177,7 +177,7 @@ export default {
                 href: menuItem.linkHref,
                 target: menuItem.linkTarget
               }, [menuItem.linkText,
-              h(`div.d-header-dropdown`,
+              h(`div.d-category-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
                     if((!child.subCategories) || (child.subCategories && child.subCategories.length === 0)){
