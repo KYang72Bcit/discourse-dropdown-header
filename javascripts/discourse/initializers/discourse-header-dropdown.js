@@ -99,12 +99,15 @@ export default {
           }
           const subCategoriesArray = [];
           subCategories.forEach((category) => {
+            console.log("category.parent", category.parent);
+            console.log("subLinkText", subLinkText);
              
       
             if(category.parent === subLinkText) {
               if((currentUser && currentUser.admin) ||(category.subAnchorAttributes.title !== "Uncategorized" 
               && category.subAnchorAttributes.title !== `${muteCategory}`)){
                 subCategoriesArray.push(category);
+
               } 
              
             }
@@ -180,7 +183,8 @@ export default {
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
-                    if((!child.children) || (child.children && child.children.length === 0)){
+                    //console.log("subcategoreis", child.subCategories);
+                    if((!child.subCategories) || (child.subCategories && subCategories.length === 0)){
                       return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
@@ -188,7 +192,7 @@ export default {
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`ul.d-dropdown-submenu`,
                       h(`a.menu-item${child.subAnchorAttributes.className}`,child.subAnchorAttributes,
-                      child.children.forEach( (category) => {
+                      child.subCategories.forEach( (category) => {
                         return h(`li.submenu-item${category.subLinkClass}`,
                       h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
                       }))
