@@ -218,7 +218,7 @@ export default {
         //   return helper.h("div.some-wrapper", htmlArray);
           
         // });;
-        api.decorateWidget("home-logo:after", (helper) => {
+        api.decorateWidget("header-buttons:before:after", (helper) => {
           return helper.h("div.some-wrapper", htmlArray);
           
         });;
@@ -229,7 +229,7 @@ export default {
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
-      api.decorateWidget("header-buttons:before",(helper) => {
+      api.decorateWidget("home-logo:after",(helper) => {
         return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
       });
 
