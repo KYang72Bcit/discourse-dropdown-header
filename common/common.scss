@@ -116,13 +116,13 @@ $icon-opacity: 0.7;
 }
 
 
-.nav__toggle:checked ~ .menu-items {
+input.nav__toggle:checked + div.menu-items {
   transform: scaleX(1);
   transition: ease-in-out 0.25s;
   transform-origin: left;
 }
 
-.nav__toggle:checked ~ .nav__toggle-label span::before {
+.nav__toggle:checked ~ .panel.clearfix .nav__toggle-label span::before {
   transform: translateX(10px) rotate(20deg);
 }
 
@@ -234,9 +234,9 @@ $icon-opacity: 0.7;
     }
   }
 
-  .nav__toggle:checked ~ .menu-items {
-    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.27);
-  }
+  // .nav__toggle:checked ~ .menu-items {
+  //   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.27);
+  // }
 
   .nav__toggle-label {
     display: block;
