@@ -281,18 +281,20 @@ export default {
         });
 
         window.addEventListener("resize", () => {
-          if (window.screen.width >= 851 && menuItems.classList.contains("menu-items-open")) {
+          if (window.screen.width >= 851 && isOpen) {
             menuItems.classList.remove("menu-items-open");
             styleEle.innerHTML = "";
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
+            isOpen = false;
           }
         })
 
         document.addEventListener("scroll", (e) => {
-          if (menuItems.classList.contains("menu-items-open")) {
+          if (isOpen) {
           menuItems.classList.remove("menu-items-open");
             styleEle.innerHTML = "";
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
+            isOpen = false;
           }
         })
       })
