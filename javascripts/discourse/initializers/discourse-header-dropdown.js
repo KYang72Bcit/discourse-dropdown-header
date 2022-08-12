@@ -109,7 +109,6 @@ export default {
               if((currentUser && currentUser.admin) ||(category.subAnchorAttributes.title !== "Uncategorized" 
               && category.subAnchorAttributes.title !== `${muteCategory}`)){
                 subCategoriesArray.push(category);
-
               } 
              
             }
@@ -185,8 +184,7 @@ export default {
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
-                    //console.log("subcategoreis", child.subCategories);
-                    if((!child.subCategories) || (child.subCategories && subCategories.length === 0)){
+                    if((!child.children) || (child.children && child.children.length === 0)){
                       return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
@@ -194,7 +192,7 @@ export default {
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`ul.d-dropdown-submenu`,
                       h(`a.menu-item${child.subAnchorAttributes.className}`,child.subAnchorAttributes,
-                      child.subCategories.forEach( (category) => {
+                      child.children.forEach( (category) => {
                         return h(`li.submenu-item${category.subLinkClass}`,
                       h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
                       }))
@@ -220,14 +218,10 @@ export default {
                 h('span.hamburger-menu'))
         )
   
-        // api.decorateWidget("header-buttons:before", (helper) => {
-        //   return helper.h("div.some-wrapper", htmlArray);
-          
-        // });;
-        api.decorateWidget("home-logo:after", (helper) => {
+        api.decorateWidget("header-buttons:before", (helper) => {
           return helper.h("div.some-wrapper", htmlArray);
           
-        });;
+        });
 
       api.decorateWidget("home-logo:after",(helper) => {
         return helper.
@@ -267,6 +261,7 @@ export default {
 
       api.onPageChange(() => {
         const burgerMenuIcon = document.querySelector('.nav__toggle-label');
+        const menuItems = document.querySelector('.menu-items');
         let isOpen = false;
         let styleEle = document.head.appendChild(document.createElement("style"));
         burgerMenuIcon.addEventListener('click', e => {
@@ -274,10 +269,12 @@ export default {
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
             burgerMenuIcon.classList.add("nav__toggle-label--active");
+            menuItems.classList.add("menu-items-open");
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
+            menuItems.classList.remove("menu-items-open");
             isOpen = false;
           }
         })
