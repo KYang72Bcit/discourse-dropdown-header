@@ -190,7 +190,7 @@ export default {
 
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`a.submenu-link`, child.subAnchorAttributes,[
-                        child.subLinkText,icon, h('div.d-category-dropdown', 
+                        child.subLinkText,icon, h('div.d-header-dropdown', 
                         h(`ul.d-dropdown-submenu`,
                         h(`a.menu-item ${child.subAnchorAttributes.className}`,
                         child.subCategories.map( (category) => {
