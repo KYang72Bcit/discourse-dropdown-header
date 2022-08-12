@@ -185,6 +185,7 @@ export default {
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
                     else {
+                      console.log("for-member's ", child.subCategories);
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`ul.d-dropdown-submenu`,
                       h(`a.menu-item${child.subAnchorAttributes.className}`,child.subAnchorAttributes,
