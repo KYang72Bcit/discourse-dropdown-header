@@ -53,7 +53,7 @@ export default {
                       title:category.name,
                       target: "_self",
                       href: `/c/${parentUrl}${category.slug}/${category.id}`,
-                      className:"submenu-link"}
+                      className:category.slug}
 
             })
           } else {
@@ -67,7 +67,7 @@ export default {
                           title:category.name,
                           target: "_self",
                           href: `/c/${category.slug}/${category.id}`,
-                          className:"submenu-link"}
+                          className: category.slug}
               }
           )
 
@@ -186,28 +186,26 @@ export default {
                     }
                     
                     else {
-                      //console.log("for-member's ", child.subCategories);
+                    
+
                       return h(`li.submenu-item${child.subLinkClass}`, 
-                      h("a.submenu-link", child.subAnchorAttributes,[
-                        child.subLinkText,icon, h(`ul.d-dropdown-submenu`,
-                        h(`a.menu-item${child.subAnchorAttributes.className}`,
+                      h(`a.submenu-link`, child.subAnchorAttributes,[
+                        child.subLinkText,icon, h('div.d-header-dropdown', 
+                        h(`ul.d-dropdown-submenu`,
+                        h(`a.menu-item ${child.subAnchorAttributes.className}`,
                         child.subCategories.map( (category) => {
                           return h(`li.submenu-item${category.subLinkClass}`,
                         h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
                         }))
-                        )
+                        ))
                       ]),
                       )
-
-                    }
-                  
-                    
+                    }  
                   })
                 ))]
             ), icon]
             )
-          )
-          
+          )  
         });
 
         const htmlArray= [];
