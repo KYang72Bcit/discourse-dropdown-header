@@ -116,7 +116,7 @@ $icon-opacity: 0.7;
 }
 
 
-.menu-items-open {
+.menu-items.menu-items-open {
   transform: scaleX(1);
   transition: ease-in-out 0.25s;
   transform-origin: left;
