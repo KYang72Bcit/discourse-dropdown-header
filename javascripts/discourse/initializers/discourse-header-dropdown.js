@@ -181,7 +181,7 @@ export default {
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
                     if((!child.subCategories) || (child.subCategories && child.subCategories.length === 0)){
-                      return h(`li.submenu-item${child.subLinkClass} haschildren`,
+                      return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
                     
@@ -192,7 +192,7 @@ export default {
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
                         h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
-                          return h(`li.submenu-item${category.subLinkClass}`,
+                          return h(`li.submenu-item${category.subLinkClass}  haschildren`,
                         h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
                         })
                         
