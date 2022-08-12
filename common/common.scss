@@ -116,14 +116,10 @@ $icon-opacity: 0.7;
 }
 
 
-input.nav__toggle:checked + div.menu-items {
+.menu-items-open {
   transform: scaleX(1);
   transition: ease-in-out 0.25s;
   transform-origin: left;
-}
-
-.nav__toggle:checked ~ .panel.clearfix .nav__toggle-label span::before {
-  transform: translateX(10px) rotate(20deg);
 }
 
 .nav__toggle-label span,

@@ -229,7 +229,7 @@ export default {
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
-      api.decorateWidget("home-logo:after",(helper) => {
+      api.decorateWidget("header-buttons:before",(helper) => {
         return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
       });
 
@@ -261,6 +261,7 @@ export default {
 
       api.onPageChange(() => {
         const burgerMenuIcon = document.querySelector('.nav__toggle-label');
+        const menuItems = document.querySelector('.menu-items');
         let isOpen = false;
         let styleEle = document.head.appendChild(document.createElement("style"));
         burgerMenuIcon.addEventListener('click', e => {
@@ -268,10 +269,12 @@ export default {
           if (!isOpen) {
             styleEle.innerHTML = ".nav__toggle-label span::before{transform: translateX(10px) rotate(20deg);background-color: var(--primary);}";
             burgerMenuIcon.classList.add("nav__toggle-label--active");
+            menuItems.classList.add("menu-items-open");
             isOpen = true;
           } else {
             styleEle.innerHTML = "";
             burgerMenuIcon.classList.remove("nav__toggle-label--active");
+            menuItems.classList.remove("menu-items-open");
             isOpen = false;
           }
         })
