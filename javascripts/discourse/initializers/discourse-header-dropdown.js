@@ -187,6 +187,8 @@ export default {
                     
                     else {
                       //console.log("for-member's ", child.subCategories);
+                      //testing
+                      
                       return h(`li.submenu-item${child.subLinkClass}`, 
                       h("a.submenu-link", child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
