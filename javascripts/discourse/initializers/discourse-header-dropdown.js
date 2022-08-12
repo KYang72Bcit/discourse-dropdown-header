@@ -185,11 +185,11 @@ export default {
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
                     }
                     else {
-                      console.log("for-member's ", child.subCategories);
-                      return h(`li.submenu-item${child.subLinkClass}`, 
+                      //console.log("for-member's ", child.subCategories);
+                      return h(`li.submenu-item${child.subLinkClass}`, child.subAnchorAttributes,
                       h(`ul.d-dropdown-submenu`,
-                      h(`a.menu-item${child.subAnchorAttributes.className}`,child.subAnchorAttributes,
-                      child.subCategories.forEach( (category) => {
+                      h(`a.menu-item${child.subAnchorAttributes.className}`,
+                      child.subCategories.map( (category) => {
                         return h(`li.submenu-item${category.subLinkClass}`,
                       h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
                       }))
