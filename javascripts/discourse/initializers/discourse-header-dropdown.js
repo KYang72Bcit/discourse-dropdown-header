@@ -73,6 +73,7 @@ export default {
          }})
 
          console.log("subMebueItemArray, ", subMenuItemsArray);
+         console.log("subCategories", subCategories);
 
       
      
