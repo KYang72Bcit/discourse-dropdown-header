@@ -64,7 +64,7 @@ export default {
                         subAnchorAttributes: {
                           title:category.name,
                           target: "_self",
-                          href: `/c/${parentUrl}${category.slug}/${category.id}`,
+                          href: `/c/${category.slug}/${category.id}`,
                           className:"submenu-link"}
               }
           )
@@ -180,8 +180,23 @@ export default {
               h(`div.d-header-dropdown`,
                 h(`ul.d-dropdown-menu`,
                   menuItem.children.map((child) => {
-                    return h(`li.submenu-item${child.subLinkClass}`,
+                    if(child.childrenArray.length === 0){
+                      return h(`li.submenu-item${child.subLinkClass}`,
                       h("a.submenu-link", child.subAnchorAttributes, child.subLinkText))
+                    }
+                    else {
+                      return h(`li.submenu-item${child.subLinkClass}`, 
+                      h(`ul.d-dropdown-submenu`,
+                      h(`a.menu-item${child.subAnchorAttributes.className}`,child.subAnchorAttributes,
+                      child.childrenArray.forEach( (category) => {
+                        return h(`li.submenu-item${category.subLinkClass}`,
+                      h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
+                      }))
+                      ))
+
+                    }
+                  
+                    
                   })
                 ))]
             ), icon]
