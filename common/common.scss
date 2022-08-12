@@ -34,7 +34,7 @@ $icon-opacity: 0.7;
     }
     .d-header-dropdown {
       display: block;
-      top: 2rem;
+      top: 1.5rem;
       left: 0;
       z-index: z("header") + 1;
       .rtl & {
@@ -221,7 +221,7 @@ $icon-opacity: 0.7;
         }
       }
       .d-header-dropdown {
-        top: 8px;
+        top: 3px;
         left: 0;
         z-index: z("header") + 1;
         height: auto;
