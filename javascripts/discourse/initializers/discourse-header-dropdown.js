@@ -78,7 +78,7 @@ export default {
           for (let i = 0; i < subCategories.length; i++) {
             if(subCategories[i].parent === item.subLinkText){
               item.subCategories.push(subCategories[i]);
-              item.subAnchorAttributes.className = "hasChildren";
+              item.subLinkClass = "hasChildren";
             }
           }
          })
@@ -190,7 +190,7 @@ export default {
                     
 
                       
-                      return h(`li.submenu-item${child.subAnchorAttributes.className}`, 
+                      return h(`li.submenu-item${child.subLinkClass}`, 
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
                         h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
