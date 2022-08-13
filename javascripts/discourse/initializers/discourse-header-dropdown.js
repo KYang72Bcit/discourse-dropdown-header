@@ -188,7 +188,7 @@ export default {
                     else {
                     
 //${child.subLinkClass} 
-                      const hasChildren = 'hasChildren';
+                      const hasChildren = ' hasChildren';
                       return h(`li.submenu-item${hasChildren}`, 
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
