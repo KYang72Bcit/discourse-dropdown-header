@@ -78,12 +78,12 @@ export default {
           for (let i = 0; i < subCategories.length; i++) {
             if(subCategories[i].parent === item.subLinkText){
               item.subCategories.push(subCategories[i]);
-              item.className = "hasChildren";
+              item.subAnchorAttributes.className = "hasChildren";
             }
           }
          })
-         console.log("subMebueItemArray, ", subMenuItemsArray);
-         console.log("subCategories", subCategories);
+         //console.log("subMebueItemArray, ", subMenuItemsArray);
+         //console.log("subCategories", subCategories);
 
       
      
