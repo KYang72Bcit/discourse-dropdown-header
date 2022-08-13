@@ -187,8 +187,8 @@ export default {
                     
                     else {
                     
-
-                      return h(`li.submenu-item${child.subLinkClass} hasChild`, 
+//${child.subLinkClass} 
+                      return h(`li.submenu-item hasChild`, 
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText,icon, h('div.d-header-dropdown', 
                         h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
