@@ -78,7 +78,7 @@ export default {
           for (let i = 0; i < subCategories.length; i++) {
             if(subCategories[i].parent === item.subLinkText){
               item.subCategories.push(subCategories[i]);
-              item.subLinkClass = "hasChildren";
+              item.subLinkClass = ".hasChildren";
             }
           }
          })
