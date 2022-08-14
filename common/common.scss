@@ -236,6 +236,7 @@ $icon-opacity: 0.7;
     .d-header-dropdown.innermost-dropdown {
       transform: translateY(-20px) translateX(calc(100% + 3rem));
       background-color: #f1f4f6;
+      display: none;
       ul.d-dropdown-submenu {
         list-style-type: none;
         margin-left: 0;
