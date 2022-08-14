@@ -247,7 +247,7 @@ $icon-opacity: 0.7;
     }
     &:hover,
     &:focus-within,
-    &:active .submenu-item.for-members .d-header-dropdown {
+    &:active .d-header-dropdown.innermost-dropdown {
       display: block;
     }
   }
