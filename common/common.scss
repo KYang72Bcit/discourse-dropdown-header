@@ -205,6 +205,23 @@ $icon-opacity: 0.7;
         transform: scaleY(0);
         transition: 0.15s ease-in-out;
         top: 1rem;
+        li.submenu-item.for-members {
+          .d-header-dropdown {
+            transform: translateY(-20px) translateX(100%);
+            background-color: #f1f4f6;
+            ul.d-dropdown-submenu {
+              list-style-type: none;
+              a.submenu-link {
+                padding-inline: 0;
+              }
+            }
+          }
+          &:hover,
+          &:focus-within,
+          &:active .submenu-item.for-members .d-header-dropdown {
+            display: block;
+          }
+        }
       }
     }
 
@@ -220,8 +237,10 @@ $icon-opacity: 0.7;
           margin-right: 0.25em;
         }
       }
+    
+  
       .d-header-dropdown {
-        top: 3px;
+        top: 8px;
         left: 0;
         z-index: z("header") + 1;
         height: auto;
