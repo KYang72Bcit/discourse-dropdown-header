@@ -205,17 +205,20 @@ $icon-opacity: 0.7;
         transform: scaleY(0);
         transition: 0.15s ease-in-out;
         top: 1rem;
-        li.submenu-item.hasChildren > .submenu-link {
-          .d-header-dropdown {
-            transform: translateY(-20px) translateX(100%);
-            background-color: #f1f4f6;
-            ul.d-dropdown-submenu {
-              list-style-type: none;
-              a.submenu-link {
-                padding-inline: 0;
+        li.submenu-item.hasChildren {
+          .submenu-link {
+            .d-header-dropdown.innermost-dropdown {
+              transform: translateY(-20px) translateX(100%);
+              background-color: #f1f4f6;
+              ul.d-dropdown-submenu {
+                list-style-type: none;
+                a.submenu-link {
+                  padding-inline: 0;
+                }
               }
             }
           }
+
           &:hover,
           &:focus-within,
           &:active .submenu-item.for-members .d-header-dropdown {
