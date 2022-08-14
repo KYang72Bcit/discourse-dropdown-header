@@ -232,11 +232,13 @@ $icon-opacity: 0.7;
     }
   }
   li.submenu-item.hasChildren {
+    position: relative;
     .d-header-dropdown.innermost-dropdown {
       transform: translateY(-20px) translateX(100%);
       background-color: #f1f4f6;
       ul.d-dropdown-submenu {
         list-style-type: none;
+        margin-left: 0;
         a.submenu-link {
           padding-inline: 0;
         }
