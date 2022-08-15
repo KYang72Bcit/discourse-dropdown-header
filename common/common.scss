@@ -10,6 +10,9 @@ $icon-opacity: 0.7;
 .menu-items {
   display: flex;
   height: $item-height;
+  a {
+    display: block;
+  }
 }
 
 .menu-item-wrapper {
@@ -77,7 +80,6 @@ $icon-opacity: 0.7;
 .submenu-link {
   display: flex;
   align-items: center;
-  text-align: center;
   color: var(--primary-high);
   padding: 0.5rem 1.5rem;
   font-size: $font-down-1;
