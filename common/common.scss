@@ -143,6 +143,9 @@ li.submenu-item.hasChildren {
           transition: all 0.3s ease;
           border-left: 4px solid #83b059;
           background-color: #f3f7fa; 
+          a {
+            color: #83b059 !important;
+          }
         }
         a {
           padding: .5rem 1.5rem;
