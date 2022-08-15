@@ -122,6 +122,11 @@ li.submenu-item.hasChildren {
   &:active .d-header-dropdown.innermost-dropdown {
       display: block;
   }
+  &:hover .d-icon-caret-right,
+  &:focus-within .d-icon-caret-right,
+  &:active .d-icon-caret-right {
+    transform: rotate(90deg);
+  }
   .d-header-dropdown.innermost-dropdown {
     transform: translateY(-20px) translateX(calc(100% + 3rem));
     background-color: #f1f4f6;
