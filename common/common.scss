@@ -240,12 +240,10 @@ $icon-opacity: 0.7;
     position: relative;
     display: flex;
     align-items: center;
-    &:hover
-    &:focus-within,
-    &:active {
-      .d-header-dropdown.innermost-dropdown {
+    &:hover .d-header-dropdown.innermost-dropdown,
+    &:focus-within .d-header-dropdown.innermost-dropdown,
+    &:active .d-header-dropdown.innermost-dropdown {
         display: block;
-      }
     }
     .d-header-dropdown.innermost-dropdown {
       transform: translateY(-20px) translateX(calc(100% + 3rem));
