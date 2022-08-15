@@ -228,18 +228,14 @@ $icon-opacity: 0.7;
           left: unset;
           right: 0;
         }
-        .submenu-item {
-          &:hover,
-          &:focus-within,
-          &:active .d-header-dropdown.innermost-dropdown {
-            display: block;
-          }
-        }
       }
     }
   }
   li.submenu-item.hasChildren {
     position: relative;
+    &:hover .d-header-dropdown.innermost-dropdown {
+      display: block;
+    }
     .d-header-dropdown.innermost-dropdown {
       transform: translateY(-20px) translateX(calc(100% + 3rem));
       background-color: #f1f4f6;
