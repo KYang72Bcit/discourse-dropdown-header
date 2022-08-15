@@ -121,7 +121,7 @@ $icon-opacity: 0.7;
 }
 
 .menu-items.menu-items-open {
-  transform: scaleX(1);
+  transform: scaleX(1) translateX(-50%);
   transition: ease-in-out 0.25s;
   transform-origin: left;
 }
@@ -174,8 +174,8 @@ $icon-opacity: 0.7;
     height: fit-content;
     width: 90vw;
     top: 100%;
-    right: 0;
-    transform: scaleX(0);
+    left: 50%;
+    transform: scaleX(0) translateX(-50%);
     transition: ease-in-out 0.3s;
     transform-origin: left;
   }
@@ -252,8 +252,15 @@ $icon-opacity: 0.7;
       ul.d-dropdown-submenu {
         list-style-type: none;
         margin-left: 0;
-        a.submenu-link {
-          padding-inline: 0;
+        li.innermost-menu:hover {
+          color: #83b059 !important;
+          transition: all 0.3s ease;
+          transform-origin: left;
+          border-left: 4px solid #83b059;
+          background-color: #f3f7fa;
+          a.submenu-link {
+            padding-inline: 0;
+          }
         }
       }
     }
