@@ -1,12 +1,14 @@
 .wrap .menu-items {
-  width: 95vw;
+  width: 90vw;
   box-sizing: border-box;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   .d-dropdown-menu {
     > li > a {
       padding-left: 0.5rem;
       padding-right: 0;
+      text-align: left;
     }
   }
 }
