@@ -136,6 +136,9 @@ li.submenu-item.hasChildren {
       margin-left: 0;
       text-align: left;
       li.innermost-menu-item {
+        a {
+          padding-left: 1rem;
+        }
         &:hover {
           color: #83b059 !important;
           transition: all 0.3s ease;
