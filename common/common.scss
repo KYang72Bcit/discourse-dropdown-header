@@ -83,8 +83,10 @@ $icon-opacity: 0.7;
   font-size: $font-down-1;
   white-space: nowrap;
   transition: all 0.5s ease;
+}
 
-  &:hover {
+.submenu-item {
+  &:hover .submenu-link{
     color: #83b059 !important;
     transition: all 0.3s ease;
     transform-origin: left;
@@ -238,10 +240,12 @@ $icon-opacity: 0.7;
     position: relative;
     display: flex;
     align-items: center;
-    &:hover .d-header-dropdown.innermost-dropdown,
-    &:focus-within .d-header-dropdown.innermost-dropdown,
-    &:active .d-header-dropdown.innermost-dropdown {
-      display: block;
+    &:hover
+    &:focus-within,
+    &:active {
+      .d-header-dropdown.innermost-dropdown {
+        display: block;
+      }
     }
     .d-header-dropdown.innermost-dropdown {
       transform: translateY(-20px) translateX(calc(100% + 3rem));
