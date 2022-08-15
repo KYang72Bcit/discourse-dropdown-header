@@ -128,7 +128,7 @@ li.submenu-item.hasChildren {
     transform: rotate(90deg);
   }
   .d-header-dropdown.innermost-dropdown {
-    transform: translateY(-20px) translateX(calc(100% + 3rem));
+    transform: translateY(-20px) translateX(100%);
     background-color: #f1f4f6;
     display: none;
     ul.d-dropdown-submenu {
@@ -136,15 +136,11 @@ li.submenu-item.hasChildren {
       margin-left: 0;
       text-align: left;
       li.innermost-menu-item {
-        padding: 0 1.5rem;
         &:hover {
           color: #83b059 !important;
           transition: all 0.3s ease;
           border-left: 4px solid #83b059;
           background-color: #f3f7fa; 
-        }
-        a.submenu-link {
-          padding-inline: 0;
         }
       }
     }
