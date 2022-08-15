@@ -128,7 +128,7 @@ li.submenu-item.hasChildren {
     transform: rotate(90deg);
   }
   .d-header-dropdown.innermost-dropdown {
-    transform: translateY(-20px) translateX(calc(100% + 64px));
+    transform: translateY(-20px) translateX(calc(100% + 19px));
     background-color: #f1f4f6;
     display: none;
     ul.d-dropdown-submenu {
