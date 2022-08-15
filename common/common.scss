@@ -129,13 +129,14 @@ li.submenu-item.hasChildren {
     ul.d-dropdown-submenu {
       list-style-type: none;
       margin-left: 0;
-      li.innermost-menu-item:hover {
-        color: #83b059 !important;
-        transition: all 0.3s ease;
-        transform-origin: left;
+      li.innermost-menu-item {
         padding-left: 25px;
-        border-left: 4px solid #83b059;
-        background-color: #f3f7fa;
+        &:hover {
+          color: #83b059 !important;
+          transition: all 0.3s ease;
+          border-left: 4px solid #83b059;
+          background-color: #f3f7fa; 
+        }
         a.submenu-link {
           padding-inline: 0;
         }
