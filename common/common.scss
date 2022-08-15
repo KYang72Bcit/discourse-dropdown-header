@@ -29,7 +29,7 @@ $icon-opacity: 0.7;
   &:focus {
     color: var(--primary-high);
     cursor: pointer;
-    .d-icon-caret-right {
+    > .d-icon-caret-right {
       transform: rotate(90deg);
     }
     .d-header-dropdown {
@@ -105,6 +105,41 @@ $icon-opacity: 0.7;
     .rtl & {
       margin-right: 0;
       margin-left: 0.5em;
+    }
+  }
+}
+
+li.submenu-item {
+  width: 100%;
+}
+li.submenu-item.hasChildren {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover .d-header-dropdown.innermost-dropdown,
+  &:focus-within .d-header-dropdown.innermost-dropdown,
+  &:active .d-header-dropdown.innermost-dropdown {
+      display: block;
+  }
+  .d-header-dropdown.innermost-dropdown {
+    transform: translateY(-20px) translateX(calc(100% + 3rem));
+    background-color: #f1f4f6;
+    display: none;
+    ul.d-dropdown-submenu {
+      list-style-type: none;
+      margin-left: 0;
+      li.innermost-menu:hover {
+        color: #83b059 !important;
+        transition: all 0.3s ease;
+        transform-origin: left;
+        padding-left: 25px;
+        border-left: 4px solid #83b059;
+        background-color: #f3f7fa;
+        a.submenu-link {
+          padding-inline: 0;
+        }
+      }
     }
   }
 }
@@ -233,40 +268,7 @@ $icon-opacity: 0.7;
       }
     }
   }
-  li.submenu-item {
-    width: 100%;
-  }
-  li.submenu-item.hasChildren {
-    position: relative;
-    display: flex;
-    align-items: center;
-    &:hover .d-header-dropdown.innermost-dropdown,
-    &:focus-within .d-header-dropdown.innermost-dropdown,
-    &:active .d-header-dropdown.innermost-dropdown {
-        display: block;
-    }
-    .d-header-dropdown.innermost-dropdown {
-      transform: translateY(-20px) translateX(calc(100% + 3rem));
-      background-color: #f1f4f6;
-      display: none;
-      ul.d-dropdown-submenu {
-        list-style-type: none;
-        margin-left: 0;
-        li.innermost-menu:hover {
-          color: #83b059 !important;
-          transition: all 0.3s ease;
-          transform-origin: left;
-          padding-left: 25px;
-          border-left: 4px solid #83b059;
-          background-color: #f3f7fa;
-          a.submenu-link {
-            padding-inline: 0;
-          }
-        }
-      }
-    }
-    
-  }
+  
   .nav__toggle-label {
     display: block;
   }
