@@ -190,7 +190,7 @@ export default {
                     
 
                       
-                      return h(`li.submenu-item${child.subLinkClass}.hasChildren`, [icon,
+                      return h(`li.submenu-item${child.subLinkClass}.hasChildren`, [
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText, h('div.d-header-dropdown.innermost-dropdown', 
                         h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
@@ -199,7 +199,7 @@ export default {
                         })
                         
                         ))
-                      ])],
+                      ]), icon],
                       )
                     }  
                   })
