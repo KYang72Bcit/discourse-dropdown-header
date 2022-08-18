@@ -195,8 +195,8 @@ export default {
                       h(`a.submenu-link`, child.subAnchorAttributes,[
                         child.subLinkText, h('div.d-header-dropdown.innermost-dropdown', 
                         h(`ul.d-dropdown-submenu`,child.subCategories.map( (category) => {
-                          return h(`li.submenu-item${category.subLinkClass}`,
-                        h("a.submenu-link", category.subAnchorAttributes, category.subLinkText))
+                          return h(`li.innermost-menu-item${category.subLinkClass}`,
+                        h("a.innermost-menu-link", category.subAnchorAttributes, category.subLinkText))
                         })
                         
                         ))
