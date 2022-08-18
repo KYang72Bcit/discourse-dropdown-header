@@ -218,19 +218,25 @@ export default {
               }, 
                 h('span.hamburger-menu'))
         )
+        let subscribeLink;
+       if(!api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber") ){
+        subscribeLink = h("a.subscribe", {title: "Subscribe", href:  "/s"})
+       } else {
+          subscribeLink = "";
+       }
   
         api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h("div.some-wrapper", htmlArray);
+          return helper.h("div.some-wrapper", [htmlArray, subscribeLink]);
           
         });
 
-        if( api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber")){
-          console.log("I'm a subscriber");
-        api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h("a.subscribe", {title: "Subscribe", href:  "/s"});
+      //   if( api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber")){
+      //     console.log("I'm a subscriber");
+      //   api.decorateWidget("header-buttons:before", (helper) => {
+      //     return helper.h("a.subscribe", {title: "Subscribe", href:  "/s"});
           
-        });
-      }
+      //   });
+      // }
 
 
       api.decorateWidget("home-logo:after",(helper) => {
