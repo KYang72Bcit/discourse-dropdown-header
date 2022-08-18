@@ -99,8 +99,8 @@ export default {
             .filter(Boolean)
             .map((x) => x.trim());
 
-          //const subLinkTarget = subTarget === "self" ? "_self" : "_blank";
-          const subLinkTarget = "_blank";
+          const subLinkTarget = subTarget === "self" ? "" : "_blank";
+          //const subLinkTarget = "_blank";
           const subLinkClass = `.${subLinkText
             .toLowerCase()
             .replace(/\s/gi, "-")}`;
@@ -111,7 +111,7 @@ export default {
           if (subLinkTarget) {
             subAnchorAttributes.target = subLinkTarget;
           }
-          
+          console.log(subAnchorAttributes.target);
 
           const subMenuItem = {
             parent,
