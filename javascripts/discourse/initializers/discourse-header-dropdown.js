@@ -225,6 +225,7 @@ export default {
         });
 
         if( api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber")){
+          console.log("I'm a subscriber");
         api.decorateWidget("header-buttons:before", (helper) => {
           return helper.h("a.subscribe", {title: "Subscribe", href:  "/s"});
           
