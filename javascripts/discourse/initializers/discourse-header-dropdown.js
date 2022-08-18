@@ -224,9 +224,10 @@ export default {
        } else {
           subscribeLink = "";
        }
+       htmlArray.push(subscribeLink);
   
         api.decorateWidget("header-buttons:before", (helper) => {
-          return helper.h("div.some-wrapper", [htmlArray, subscribeLink]);
+          return helper.h("div.some-wrapper", htmlArray);
           
         });
 
