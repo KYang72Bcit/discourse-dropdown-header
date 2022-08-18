@@ -219,7 +219,7 @@ export default {
                 h('span.hamburger-menu'))
         )
         let subscribeLink;
-       if(!api.getCurrentUser() || !api.getCurrentUser().groups.any(g => g.name === "Member_Directory")){
+       if(api.getCurrentUser() || !api.getCurrentUser().groups.any(g => g.name === "Member_Directory")){
         subscribeLink = h("a.subscribe", {title: "Subscribe", href:  "/s"}, "Subscribe");
         console.log("subscribeLink", subscribeLink);
        } else {
