@@ -219,7 +219,7 @@ export default {
                 h('span.hamburger-menu'))
         )
         let subscribeLink;
-       if(api.getCurrentUser() && !api.getCurrentUser().groups.any(g => g.name === "Member_Directory")){
+       if(api.getCurrentUser() && !api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber")){
         subscribeLink = h("a.subscribe-for-member", {title: "Subscribe", href:  "/s"}, "Subscribe");
         console.log("subscribeLink", subscribeLink);
        } else {
@@ -232,13 +232,7 @@ export default {
           
         });
 
-      //   if( api.getCurrentUser().groups.any(g => g.name === "Monthly_Subscriber")){
-      //     console.log("I'm a subscriber");
-      //   api.decorateWidget("header-buttons:before", (helper) => {
-      //     return helper.h("a.subscribe", {title: "Subscribe", href:  "/s"});
-          
-      //   });
-      // }
+    
 
 
       api.decorateWidget("home-logo:after",(helper) => {
@@ -247,9 +241,7 @@ export default {
           h('div.menu-placeholder',
             h('div.menu-item-container')))
       });
-      // api.decorateWidget("home-logo:after",(helper) => {
-      //   return helper.h('input.nav__toggle#nav__toggle', {type: "checkbox"})
-      // });
+     
 
       api.decorateWidget("home-logo:after", (helper) => {
        
