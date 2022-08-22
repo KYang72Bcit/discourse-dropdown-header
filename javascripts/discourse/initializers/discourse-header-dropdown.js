@@ -221,7 +221,7 @@ export default {
         let subscribeLink;
        if(api.getCurrentUser() && !api.getCurrentUser().groups.any(g => g.name === "Member_Directory")){
         subscribeLink = h("a.subscribe-for-member", {title: "Subscribe", href:  "/s"}, "Subscribe");
-        console.log("subscribeLink", subscribeLink);
+        //console.log("subscribeLink", subscribeLink);
        } else {
           subscribeLink = "";
        }
