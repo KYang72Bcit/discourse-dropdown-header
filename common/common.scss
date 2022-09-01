@@ -1,6 +1,9 @@
 $item-height: 40px;
 $icon-opacity: 0.7;
 
+.extra-info-wrapper {
+  display: none;
+}
 .menu-content {
   padding-left: 3%;
   display: flex;
